@@ -1,6 +1,10 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,10 +12,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        navy: {
+          50: "#E0F5FA",
+          100: "#B1E4F3",
+          300: "#4EBFE5",
+          500: "#30B1E0",
+          700: "#1E8FBF",
+          900: "#115E8A",
+        },
+      },
+      fontFamily: {
+        text: ["Red Hat Text", ...defaultTheme.fontFamily.sans],
+        display: ["Red Hat Display", ...defaultTheme.fontFamily.sans],
+        comfortaa: ["Comfortaa", ...defaultTheme.fontFamily.sans],
+        mono: ["Red Hat Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
