@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className="font-text w-screen overflow-x-hidden">{children}</body>
+      <body className="relative font-text w-screen overflow-x-hidden">
+        {children}
+      </body>
     </html>
   );
 }
