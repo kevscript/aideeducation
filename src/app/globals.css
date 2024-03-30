@@ -16,4 +16,9 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .wrapper {
+    width: calc(min(77.5rem, 100% - 4rem));
+    margin: 0 auto;
+  }
 }
