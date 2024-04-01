@@ -4,17 +4,19 @@ import { VideoBlob } from "./video-blob";
 
 export function HeroSection() {
   return (
-    <section className="relative bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 pt-20 pb-16 rounded-bl-2xl">
-      <div className="wrapper flex flex-col items-center gap-12">
+    <section className="relative lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 pt-20 pb-16 rounded-bl-2xl lg:flex justify-center">
+      <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
         <VideoBlob />
 
-        <div className="w-full flex flex-col items-center text-center text-white">
-          <h1 className="text-5xl font-bold tracking-tighter">AideEducation</h1>
-          <h3 className="mt-4">
+        <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
+          <h1 className="text-5xl lg:text-[4rem] font-bold tracking-tighter">
+            AideEducation
+          </h1>
+          <h3 className="mt-4 lg:text-2xl lg:max-w-[32rem] lg:tracking-tight lg:mt-6">
             Car le savoir est un droit. Facile d&apos;utilisation, nous sommes
             votre plateforme d&apos;aide aux devoirs personnalisée.
           </h3>
-          <div className="flex flex-col w-full gap-4 mt-8">
+          <div className="flex flex-col w-full gap-4 mt-8 lg:mt-12 lg:flex-row">
             <Button
               theme="dark"
               startIcon={<DiscordIcon className="w-5 h-5 fill-navy-900" />}
