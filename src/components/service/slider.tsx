@@ -3,7 +3,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import Image from "next/image";
 
-export function ServiceSlider() {
+type ServiceSliderProps = {
+  services: any[];
+};
+
+export function ServiceSlider({ services }: ServiceSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -27,15 +31,15 @@ export function ServiceSlider() {
   }, [emblaApi, onSliderSelect]);
 
   return (
-    <div>
+    <div className="lg:hidden">
       <div className="overflow-hidden relative" ref={emblaRef}>
         <div className="flex">
-          {Array.from({ length: 3 }).map((x, i) => (
-            <div key={i} className="min-w-0 w-full flex-shrink-0 px-8">
+          {services.map((service) => (
+            <div key={service.id} className="min-w-0 w-full flex-shrink-0 px-8">
               <div className="w-full px-4 pb-8 pt-64 relative z-0 h-full flex items-end rounded-tr-2xl rounded-bl-2xl overflow-hidden">
                 <div className="absolute inset-0 -z-20">
                   <Image
-                    src={"https://source.unsplash.com/random/600x600"}
+                    src={service.imgUrl}
                     className="object-cover"
                     fill
                     alt="service"
@@ -44,13 +48,9 @@ export function ServiceSlider() {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-700/20 to-navy-900"></div>
                 <div className="w-full flex flex-col gap-2">
                   <h5 className="text-2xl text-white font-semibold tracking-tight">
-                    Aide aux devoirs
+                    {service.title}
                   </h5>
-                  <p className="text-white">
-                    Vous rencontrez des problèmes avec un devoir? Notre équipe
-                    pédagogique est prête à vous accompagner sur notre serveur
-                    Discord.
-                  </p>
+                  <p className="text-white">{service.description}</p>
                 </div>
               </div>
             </div>
