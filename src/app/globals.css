@@ -22,3 +22,17 @@
     margin: 0 auto;
   }
 }
+
+.infinite-scroll {
+  animation: infinite-scroll 30s linear infinite;
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}

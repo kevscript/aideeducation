@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function Menu() {
   return (
-    <div className="absolute inset-0 bg-gradient-to-b from-navy-700 to-navy-900 -z-10">
+    <div className="fixed top-0 left-0 right-0 h-screen bg-gradient-to-b from-navy-700 to-navy-900 z-40">
       <div className="wrapper pt-8 pb-8 text-white list-none w-full h-full">
         <div className="flex flex-col gap-8 justify-center w-full items-center text-center h-full">
           <div className="flex flex-col w-full gap-8 flex-1 justify-center">
@@ -16,7 +16,7 @@ export function Menu() {
 
             <ul className="flex flex-col w-full gap-1">
               <Link href="/">
-                <li className="bg-gradient-to-r  rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
+                <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Association
                 </li>
               </Link>

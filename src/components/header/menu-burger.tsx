@@ -7,27 +7,33 @@ type MenuBurgerProps = {
 };
 
 export function MenuBurger({ menuStatus, appearance }: MenuBurgerProps) {
-  const bgColor =
-    menuStatus === "open"
-      ? "bg-white"
-      : appearance === "light"
-      ? "bg-white"
-      : "bg-navy-900";
   return (
-    <div className="w-6 flex justify-between items-center flex-col gap-1">
+    <div className="flex w-[18px] flex-col flex-nowrap justify-between gap-[3px]">
       <div
-        className={`w-full h-1 rounded-full transition duration-300 ${bgColor} ${
-          menuStatus === "open" && "rotate-45 translate-y-2"
+        className={`h-[2px] w-full transition duration-500 rounded-full ${
+          menuStatus === "open"
+            ? "translate-y-[5px] rotate-45 bg-white"
+            : appearance === "light"
+            ? "bg-white"
+            : "bg-navy-900"
         }`}
       ></div>
       <div
-        className={`w-full h-1 rounded-full transition duration-300 ${bgColor} ${
-          menuStatus === "open" && "-translate-x-3 opacity-0 scale-0 bg-white"
+        className={`h-[2px] w-full  rounded-full transition duration-500 ${
+          menuStatus === "open"
+            ? "opacity-0"
+            : appearance === "light"
+            ? "bg-white"
+            : "bg-navy-900"
         }`}
       ></div>
       <div
-        className={`w-full h-1 rounded-full transition duration-300 ${bgColor} ${
-          menuStatus === "open" && "-rotate-45 -translate-y-2"
+        className={`h-[2px] w-full rounded-full transition duration-500 ${
+          menuStatus === "open"
+            ? "-translate-y-[5px] -rotate-45 bg-white"
+            : appearance === "light"
+            ? "bg-white"
+            : "bg-navy-900"
         }`}
       ></div>
     </div>

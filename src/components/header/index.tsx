@@ -64,7 +64,7 @@ export function Header() {
   return (
     <>
       <header
-        className={`w-full z-50 fixed top-0 left-0 right-0 ${
+        className={`w-full z-50 fixed top-0 left-0 ${
           isPageTop || menuStatus === "open"
             ? "bg-transparent"
             : "bg-white/80 shadow-sm backdrop-blur"
@@ -76,12 +76,12 @@ export function Header() {
               className={`${
                 menuStatus === "open" || appearance === "light"
                   ? "fill-white"
-                  : "fill-navy-700"
+                  : "fill-navy-900"
               } h-8 w-8`}
             />
             {!isPageTop && menuStatus === "close" && (
               <span
-                className={`text-clip bg-gradient-to-r from-navy-500 to-navy-700 font-display tracking-tight`}
+                className={`bg-clip-text text-transparent font-bold bg-gradient-to-r from-navy-700 to-navy-900 font-display tracking-tight`}
               >
                 AideEducation
               </span>
@@ -134,8 +134,9 @@ export function Header() {
             />
           </nav>
 
+          {/* Mobile Burger*/}
           <div
-            className="aspect-square flex justify-center items-center lg:hidden"
+            className="flex justify-center items-center lg:hidden"
             onClick={() =>
               setMenuStatus((x) => (x === "close" ? "open" : "close"))
             }
