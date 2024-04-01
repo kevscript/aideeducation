@@ -58,10 +58,10 @@ export function StatisticList({ statistics }: StatisticListProps) {
           key={i}
           className="relative w-full lg:min-h-64 group cursor-pointer bg-gradient-to-br from-white to-neutral-50"
         >
-          {statistics[i] && (
+          {statistics[i] ? (
             <>
               <div
-                className="border group-hover:border-neutral-900 border-neutral-100  group-hover:from-neutral-900 group-hover:to-neutral-900 bg-gradient-to-br from-white to-neutral-50 p-8 flex gap-2 flex-col z-0 h-full"
+                className="border group-hover:border-neutral-900 border-neutral-100  group-hover:from-neutral-900 group-hover:to-neutral-900  bg-gradient-to-br from-white to-neutral-50 p-8 flex gap-2 flex-col z-0 h-full"
                 aria-hidden="true"
               >
                 <p className="opacity-0 text-5xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
@@ -73,7 +73,7 @@ export function StatisticList({ statistics }: StatisticListProps) {
                   {statistics[i].description}
                 </p>
               </div>
-              <div className="z-10 absolute inset-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all ease-in-out group-hover:rounded-tr-2xl">
+              <div className="z-10 absolute inset-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out group-hover:rounded-tr-2xl">
                 <p className="text-5xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900 group-hover:from-white group-hover:to-white">
                   <span>{statistics[i].prefix || ""}</span>
                   <span className="font-mono">{statistics[i].amount}</span>
@@ -84,6 +84,8 @@ export function StatisticList({ statistics }: StatisticListProps) {
                 </p>
               </div>
             </>
+          ) : (
+            <div className="w-full h-full border border-neutral-100"></div>
           )}
         </div>
       ))}

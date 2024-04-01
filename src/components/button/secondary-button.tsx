@@ -27,7 +27,7 @@ export function SecondaryButton({
         className={`px-6 group hover:translate-x-1 gap-4 hover:-translate-y-1 absolute top-0 left-0 w-full h-full shadow-[inset_0px_0px_0px_2px] rounded-tr-lg rounded-bl-lg flex justify-center items-center [transition:background-color_0s_ease-out_0.3s,transform_0.3s] hover:[transition:background-color_0s,transform_0.3s] ${
           theme === "light"
             ? "bg-transparent shadow-navy-900 text-navy-900 hover:bg-white"
-            : "bg-transparent shadow-white text-white hover:bg-inherit"
+            : `bg-transparent shadow-white text-white hover:bg-inherit`
         } ${className}`}
       >
         {startIcon && startIcon}

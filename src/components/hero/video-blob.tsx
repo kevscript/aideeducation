@@ -39,12 +39,11 @@ export function VideoBlob() {
             <ExitIcon className="w-8 h-8 fill-white" />
           </div>
 
-          <div className="w-full aspect-video">
+          <div className="w-full aspect-video max-w-[64rem]">
             <video
               ref={videoRef}
               className="w-full h-auto bg-navy-900"
               controls
-              // poster="https://source.unsplash.com/random/1280x720"
             >
               <source src="/presentation.mp4" />
             </video>
