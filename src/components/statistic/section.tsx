@@ -2,7 +2,7 @@ import { StatisticList } from "./list";
 
 export function StatisticSection() {
   return (
-    <section className="py-8 w-full relative">
+    <section className="py-8 md:py-16 xl:py-24 w-full relative">
       <div className="wrapper">
         <StatisticList
           statistics={[

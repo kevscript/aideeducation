@@ -26,7 +26,7 @@ export function ValeurSlider() {
   }, [emblaApi, onSliderSelect]);
 
   return (
-    <div className="bg-neutral-50 py-16 flex flex-col gap-8">
+    <div className="bg-neutral-50 flex flex-col gap-8 md:hidden">
       <div className="overflow-hidden relative" ref={emblaRef}>
         <div className="flex">
           {Array.from({ length: 6 }).map((x, i) => (

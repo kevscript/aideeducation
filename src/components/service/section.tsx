@@ -34,7 +34,7 @@ const services = [
 
 export function ServiceSection() {
   return (
-    <section className="relative pt-16 pb-8 lg:pt-24 lg:pb-16 w-full">
+    <section className="relative pt-16 pb-8 md:pb-16 lg:py-24 xl:py-24 w-full">
       <ServiceSlider services={services} />
       <ServiceCatalogue services={services} />
     </section>

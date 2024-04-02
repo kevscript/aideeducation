@@ -69,20 +69,14 @@ export function ServiceCatalogue({ services }: ServiceCatalogueProps) {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col gap-16">
-        <div className="flex flex-col gap-2">
-          <h3 className="tracking-tight text-nacy-900">Nos Services</h3>
-          <p className="text-4xl font-semibold tracking-tighter">
-            Profitez d&apos;une experience enrichissante.
-          </p>
-        </div>
+      <div className="flex-1 flex flex-col gap-16 justify-center">
         <ul className="flex flex-col">
           {services.length &&
             services.map((service) => (
               <div
                 key={service.id}
                 onClick={() => handleActiveService(service.id)}
-                className="cursor-pointer pt-8 group"
+                className="cursor-pointer first:pt-0 pt-8 group"
               >
                 <div>
                   <h5

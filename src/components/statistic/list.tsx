@@ -47,21 +47,27 @@ export function StatisticList({ statistics }: StatisticListProps) {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       ref={gridRef}
     >
-      <div className="w-full col-span-1 md:col-span-2 border border-neutral-100 md:border-none p-8 flex flex-col gap-4">
-        <h3 className="text-navy-900 tracking-tight">Nos Statistiques</h3>
-        <p className="text-xl font-semibold tracking-tighter">
-          L&apos;activité de l&apos;association en quelques chiffres.
+      <div className="w-full col-span-1 md:col-span-2 border border-neutral-100 md:border-none p-8 flex flex-col gap-2">
+        <h3 className="text-navy-700 tracking-tight font-semibold">
+          Nos Statistiques
+        </h3>
+        <p className="text-xl lg:text-4xl font-semibold tracking-tighter">
+          L&apos;activité de l&apos;association en{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
+            quelques chiffres
+          </span>
+          .
         </p>
       </div>
       {Array.from({ length: cellCount }).map((x, i) => (
         <div
           key={i}
-          className="relative w-full lg:min-h-64 group cursor-pointer bg-gradient-to-br from-white to-neutral-50"
+          className="relative w-full lg:min-h-64 group cursor-pointer"
         >
           {statistics[i] ? (
             <>
               <div
-                className="border group-hover:border-neutral-900 border-neutral-100  group-hover:from-neutral-900 group-hover:to-neutral-900  bg-gradient-to-br from-white to-neutral-50 p-8 flex gap-2 flex-col z-0 h-full"
+                className="border group-hover:border-neutral-900 border-neutral-100 group-hover:bg-neutral-900 p-8 flex gap-2 flex-col z-0 h-full"
                 aria-hidden="true"
               >
                 <p className="opacity-0 text-5xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
