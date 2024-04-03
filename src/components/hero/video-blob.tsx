@@ -24,7 +24,7 @@ export function VideoBlob() {
   return (
     <>
       <div
-        className="group hover:scale-125 duration-300 transition w-48 lg:w-3/5 aspect-square bg-navy-700 blobing flex justify-center items-center cursor-pointer"
+        className="group hover:scale-125 transition duration-500 w-48 lg:w-3/5 aspect-square bg-navy-700 blobing flex justify-center items-center cursor-pointer"
         onClick={handleVideoOpen}
       >
         <PlayIcon className="w-8 h-8 lg:w-12 lg:h-12 fill-white md:fill-navy-900 group-hover:fill-white transition" />

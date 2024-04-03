@@ -64,10 +64,10 @@ export function Header() {
   return (
     <>
       <header
-        className={`w-full z-50 fixed top-0 left-0 ${
+        className={`w-full z-50 fixed top-0 left-0  transition ${
           isPageTop || menuStatus === "open"
             ? "bg-transparent"
-            : "bg-white/80 shadow-sm backdrop-blur"
+            : "bg-white/90 shadow-sm backdrop-blur"
         }`}
       >
         <div className="wrapper flex justify-between flex-nowrap items-center h-16 w-full">
@@ -81,7 +81,7 @@ export function Header() {
             />
             {!isPageTop && menuStatus === "close" && (
               <span
-                className={`bg-clip-text text-transparent font-bold bg-gradient-to-r from-navy-700 to-navy-900 font-display tracking-tight`}
+                className={`text-navy-900 font-bold  font-display tracking-tight`}
               >
                 AideEducation
               </span>

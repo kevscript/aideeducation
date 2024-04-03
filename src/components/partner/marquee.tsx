@@ -1,27 +1,176 @@
 import { LogoIcon } from "../icons/logo";
+import Image from "next/image";
 
 export function PartnerMarquee() {
   return (
     <div className="relative z-0 flex overflow-hidden select-none gap-4">
       <div className="absolute top-0 left-0 right-0 bottom-0 from-white via-transparent via-10% to-white z-10 bg-[linear-gradient(90deg,rgba(255,255,255,1)0%,rgba(255,255,255,0)10%,rgba(255,255,255,0)90%,rgba(255,255,255,1)100%)]"></div>
-      <ul className="flex-shrink-0 flex justify-around min-w-full gap-4 infinite-scroll">
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
+      <ul className="flex-shrink-0 flex justify-around min-w-full infinite-scroll gap-8">
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/s3a.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="s3a"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/google.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="google"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/herouville.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="herouville"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/shield.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="shield"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/s3a.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="s3a"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/google.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="google"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/herouville.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="herouville"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/shield.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="shield"
+          />
+        </div>
       </ul>
       <ul
-        className="flex-shrink-0 flex justify-around min-w-full gap-4 infinite-scroll"
+        className="flex-shrink-0 flex justify-around min-w-full infinite-scroll gap-8"
         aria-hidden="true"
       >
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
-        <LogoIcon className="w-8 h-8 md:w-16 md:h-16 fill-neutral-200" />
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/s3a.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="s3a"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/google.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="google"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/herouville.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="herouville"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/shield.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="shield"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/s3a.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="s3a"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/google.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="google"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/herouville.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="herouville"
+          />
+        </div>
+        <div className="relative flex justify-center items-center h-16">
+          <Image
+            src="/shield.svg"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-full max-w-24 grayscale opacity-50"
+            alt="shield"
+          />
+        </div>
       </ul>
     </div>
   );

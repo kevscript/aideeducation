@@ -44,16 +44,13 @@ export function StatisticList({ statistics }: StatisticListProps) {
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      className="z-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       ref={gridRef}
     >
       <div className="w-full col-span-1 md:col-span-2 border border-neutral-100 md:border-none p-8 flex flex-col gap-2">
-        <h3 className="text-navy-700 tracking-tight font-semibold">
-          Nos Statistiques
-        </h3>
-        <p className="text-xl lg:text-4xl font-semibold tracking-tighter">
+        <p className="text-xl md:text-2xl lg:text-4xl font-bold tracking-tighter text-balance text-center lg:text-left">
           L&apos;activité de l&apos;association en{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
+          <span className="bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900">
             quelques chiffres
           </span>
           .
@@ -62,25 +59,12 @@ export function StatisticList({ statistics }: StatisticListProps) {
       {Array.from({ length: cellCount }).map((x, i) => (
         <div
           key={i}
-          className="relative w-full lg:min-h-64 group cursor-pointer"
+          className="relative w-full min-h-16 lg:min-h-64 group border border-neutral-100"
         >
           {statistics[i] ? (
-            <>
-              <div
-                className="border group-hover:border-neutral-900 border-neutral-100 group-hover:bg-neutral-900 p-8 flex gap-2 flex-col z-0 h-full"
-                aria-hidden="true"
-              >
-                <p className="opacity-0 text-5xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
-                  <span>{statistics[i].prefix || ""}</span>
-                  <span className="font-mono">{statistics[i].amount}</span>
-                  <span>{statistics[i].suffix || ""}</span>
-                </p>
-                <p className="opacity-0 tracking-tight">
-                  {statistics[i].description}
-                </p>
-              </div>
-              <div className="z-10 absolute inset-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300 ease-in-out group-hover:rounded-tr-2xl">
-                <p className="text-5xl font-semibold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900 group-hover:from-white group-hover:to-white">
+            <div className="w-full h-full group-hover:bg-neutral-900 cursor-pointer">
+              <div className="w-full h-full lg:group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out lg:group-hover:rounded-tr-2xl text-center text-balance md:text-left">
+                <p className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900 group-hover:from-white group-hover:to-white">
                   <span>{statistics[i].prefix || ""}</span>
                   <span className="font-mono">{statistics[i].amount}</span>
                   <span>{statistics[i].suffix || ""}</span>
@@ -89,9 +73,9 @@ export function StatisticList({ statistics }: StatisticListProps) {
                   {statistics[i].description}
                 </p>
               </div>
-            </>
+            </div>
           ) : (
-            <div className="w-full h-full border border-neutral-100"></div>
+            <div className="w-full h-full"></div>
           )}
         </div>
       ))}

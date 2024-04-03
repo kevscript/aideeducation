@@ -21,6 +21,21 @@ export function StatisticSection() {
               amount: 68,
               description: "bénévoles à votre service.",
             },
+            {
+              amount: 2064,
+              suffix: "+",
+              description: "membres de la communauté.",
+            },
+            {
+              amount: 24,
+              prefix: "<",
+              suffix: "h",
+              description: "temps de traitement moyen des tickets.",
+            },
+            {
+              amount: 68,
+              description: "bénévoles à votre service.",
+            },
           ]}
         />
       </div>

@@ -33,26 +33,12 @@ const testimonials = [
 export function TestimonialSection() {
   return (
     <section className="w-full relative bg-gradient-to-br from-navy-700 to-navy-900">
-      <div className="w-full h-full grid grid-cols-[minmax(2rem,1fr)_minmax(16rem,56rem)_minmax(2rem,1fr)] grid-rows-[4rem_1fr_4rem] lg:grid-rows-[8rem_1fr_8rem]">
-        <div className="col-start-2 row-start-2 col-span-1 row-span-1 relative group transition duration-300 hover:bg-neutral-900 border border-navy-900 z-0">
-          <div className="w-full h-full absolute inset-0 flex flex-col p-8 lg:p-16  bg-gradient-to-bl from-white to-neutral-100 gap-8 rounded-tr-2xl group-hover:translate-x-4 group-hover:-translate-y-4 transition-all duration-300 ease-in-out">
-            <h3 className="font-semibold text-navy-900 tracking-tight">
-              Nos Témoignages
-            </h3>
-            <TestimonialCarousel testimonials={testimonials} />
-          </div>
-          {/** Below is ghost component to give the right dimension for absolute positioned twin.  */}
-          <div
-            className="w-full h-full flex flex-col p-8 lg:p-16 gap-8 opacity-0 pointer-events-none -z-10"
-            aria-hidden="true"
-          >
-            <h3 className="font-semibold text-navy-900 tracking-tight">
-              Nos Témoignages
-            </h3>
+      <div className="w-full h-full grid grid-cols-[minmax(1rem,1fr)_minmax(16rem,56rem)_minmax(1rem,1fr)] grid-rows-[4rem_1fr_4rem] lg:grid-rows-[8rem_1fr_8rem]">
+        <div className="col-start-2 row-start-2 col-span-1 row-span-1 relative group transition duration-300 lg:hover:bg-neutral-900 border border-navy-900 z-0">
+          <div className="w-full h-full flex flex-col p-8 lg:p-16  bg-gradient-to-bl from-white to-neutral-100 gap-8 rounded-tr-2xl lg:group-hover:translate-x-4 lg:group-hover:-translate-y-4 transition-all duration-300 ease-in-out">
             <TestimonialCarousel testimonials={testimonials} />
           </div>
         </div>
-
         <div className="col-start-2 row-start-1 col-span-1 row-span-1 border-x border-navy-900 h-full w-full"></div>
         <div className="col-start-2 row-start-3 col-span-1 row-span-1 border-x border-navy-900 h-full w-full"></div>
         <div className="col-start-1 row-start-2 col-span-1 row-span-1 border-y border-navy-900 h-full w-full"></div>

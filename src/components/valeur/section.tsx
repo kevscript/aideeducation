@@ -48,16 +48,8 @@ const valeurs = [
 
 export function ValeurSection() {
   return (
-    <section className="relative w-full py-16 xl:py-24 bg-neutral-50">
-      <div className="flex flex-col gap-8 md:gap-16">
-        <div className="wrapper flex justify-center text-center flex-col gap-2">
-          <h3 className="text-navy-700 tracking-tight font-semibold">
-            Nos Valeurs
-          </h3>
-          <p className="text-xl md:text-2xl lg:text-4xl font-semibold tracking-tighter">
-            Elles nous accompagnent au quotidien.
-          </p>
-        </div>
+    <section className="relative w-full py-16 xl:py-24 bg-gradient-to-b from-neutral-50 to-transparent">
+      <div className="flex flex-col md:gap-16">
         <ValeurSlider />
         <ValeurList valeurs={valeurs} />
       </div>

@@ -33,9 +33,12 @@ export function ServiceSlider({ services }: ServiceSliderProps) {
   return (
     <div className="lg:hidden">
       <div className="overflow-hidden relative" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex wrapper gap-2">
           {services.map((service) => (
-            <div key={service.id} className="min-w-0 w-full flex-shrink-0 px-8">
+            <div
+              key={service.id}
+              className="min-w-0 w-full flex-shrink-0 max-w-96"
+            >
               <div className="w-full px-4 pb-8 pt-64 relative z-0 h-full flex items-end rounded-tr-2xl rounded-bl-2xl overflow-hidden">
                 <div className="absolute inset-0 -z-20">
                   <Image
@@ -57,28 +60,29 @@ export function ServiceSlider({ services }: ServiceSliderProps) {
           ))}
         </div>
       </div>
-      {emblaApi && (
-        <div className="mt-4">
-          <div className="wrapper flex flex-nowrap w-full justify-center items-center gap-4">
-            <div className="relative flex flex-1">
-              <div className="w-full h-0.5 bg-neutral-100"></div>
-              <div
-                className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-navy-700 to-navy-900 transition-all ease-out duration-1000"
-                style={{
-                  width: `${Math.round(
-                    ((activeSlideIndex + 1) / emblaApi.slideNodes().length) *
-                      100
-                  )}%`,
-                }}
-              ></div>
-            </div>
-            <span className="font-mono text-navy-900 text-sm tracking-tighter font-semibold">
-              {String(activeSlideIndex + 1).padStart(2, "0")}/
-              {String(emblaApi.slideNodes().length).padStart(2, "0")}
-            </span>
+
+      <div className="px-4 mt-4">
+        <div className="wrapper flex flex-nowrap w-full justify-center items-center gap-4">
+          <div className="relative flex flex-1">
+            <div className="w-full h-[1px] bg-neutral-100"></div>
+            <div
+              className="absolute top-0 left-0 h-[1px] bg-navy-900 transition-all ease-out duration-1000"
+              style={{
+                width: emblaApi
+                  ? `${Math.round(
+                      ((activeSlideIndex + 1) / emblaApi.slideNodes().length) *
+                        100
+                    )}%`
+                  : "0%",
+              }}
+            ></div>
           </div>
+          <span className="font-mono text-sm tracking-tighter text-navy-900">
+            {String(activeSlideIndex + 1).padStart(2, "0")}/
+            {String(emblaApi?.slideNodes().length || 0).padStart(2, "0")}
+          </span>
         </div>
-      )}
+      </div>
     </div>
   );
 }

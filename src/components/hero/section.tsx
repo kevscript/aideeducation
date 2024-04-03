@@ -12,7 +12,7 @@ export function HeroSection() {
           <h1 className="text-5xl lg:text-[4rem] font-bold tracking-tighter">
             AideEducation
           </h1>
-          <h3 className="mt-4 lg:text-2xl lg:max-w-[32rem] lg:tracking-tight lg:mt-6">
+          <h3 className="mt-4 lg:text-2xl lg:max-w-[32rem] lg:tracking-tight lg:mt-6 text-balance md:text-wrap">
             Car le savoir est un droit. Facile d&apos;utilisation, nous sommes
             votre plateforme d&apos;aide aux devoirs personnalisée.
           </h3>
