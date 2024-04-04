@@ -1,9 +1,16 @@
 import { PartnerMarquee } from "./marquee";
 
+const partners = [
+  { id: "1", name: "S3A", logoUrl: "/s3a.svg", description: "" },
+  { id: "2", name: "Google", logoUrl: "/google.svg", description: "" },
+  { id: "3", name: "Herouville", logoUrl: "/herouville.svg", description: "" },
+  { id: "4", name: "Shield", logoUrl: "/shield.svg", description: "" },
+];
+
 export function PartnerSection() {
   return (
     <section className="py-8 md:py-16 xl:py-24 w-full relative">
-      <PartnerMarquee />
+      <PartnerMarquee partners={partners} />
     </section>
   );
 }

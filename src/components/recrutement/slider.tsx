@@ -3,11 +3,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import Image from "next/image";
 
-type ServiceSliderProps = {
-  services: any[];
+type RecrutementSliderProps = {
+  jobs: any[];
 };
 
-export function ServiceSlider({ services }: ServiceSliderProps) {
+export function RecrutementSlider({ jobs }: RecrutementSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -34,27 +34,30 @@ export function ServiceSlider({ services }: ServiceSliderProps) {
     <div className="lg:hidden">
       <div className="overflow-hidden relative" ref={emblaRef}>
         <div className="flex wrapper gap-2">
-          {services.map((service) => (
+          {jobs.map((job, i) => (
             <div
-              key={service.id}
-              className="min-w-0 w-full flex-shrink-0 max-w-96"
+              key={job.id}
+              className="min-w-0 w-full flex-shrink-0 max-w-96 bg-gradient-to-b from-white to-neutral-50 border border-neutral-100 rounded-tr-2xl rounded-bl-2xl p-6 flex flex-col gap-8"
             >
-              <div className="px-4 pb-8 pt-64 relative z-0 h-full flex items-end rounded-tr-2xl rounded-bl-2xl overflow-hidden">
-                <div className="absolute inset-0 -z-20">
-                  <Image
-                    src={service.imgUrl}
-                    className="object-cover"
-                    fill
-                    alt="service"
-                  />
-                </div>
-                <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-700/20 to-navy-900"></div>
-                <div className="w-full flex flex-col gap-2">
-                  <h5 className="text-2xl text-white font-semibold tracking-tight">
-                    {service.title}
-                  </h5>
-                  <p className="text-white">{service.description}</p>
-                </div>
+              <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
+
+              <div className="flex flex-col gap-4">
+                <h5 className="text-xl font-semibold tracking-tighter text-navy-900">
+                  {job.role}
+                </h5>
+                <p>{job.description}</p>
+              </div>
+
+              <div className="flex justify-end mt-auto">
+                <span
+                  className={`font-display px-2 py-1 rounded font-semibold ${
+                    job.available
+                      ? "text-navy-700 bg-navy-50"
+                      : "text-neutral-400 bg-neutral-100"
+                  }`}
+                >
+                  {job.available ? "Actif" : "Inactif"}
+                </span>
               </div>
             </div>
           ))}

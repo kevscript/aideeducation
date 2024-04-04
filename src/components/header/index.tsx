@@ -98,8 +98,8 @@ export function Header() {
               navItem={{
                 label: "Qui sommes-nous",
                 dropdown: [
-                  { label: "Association", path: "/" },
-                  { label: "Equipe", path: "/" },
+                  { label: "Association", path: "/nous/association" },
+                  { label: "Equipe", path: "/nous/equipe" },
                 ],
               }}
               appearance={appearance}
@@ -108,8 +108,8 @@ export function Header() {
               navItem={{
                 label: "Documentation",
                 dropdown: [
-                  { label: "Orientation", path: "/" },
-                  { label: "Tutoriels", path: "/" },
+                  { label: "Orientation", path: "/documentation/orientation" },
+                  { label: "Tutoriels", path: "/documentation/tutoriels" },
                 ],
               }}
               appearance={appearance}
@@ -120,16 +120,16 @@ export function Header() {
                 dropdown: [
                   {
                     label: "Recrutement",
-                    path: "/",
+                    path: "/soutenir/recrutement",
                   },
-                  { label: "Faire un don", path: "/" },
-                  { label: "Partenaires", path: "/" },
+                  { label: "Faire un don", path: "/soutenir/don" },
+                  { label: "Partenaires", path: "/soutenir/partenaires" },
                 ],
               }}
               appearance={appearance}
             />
             <NavLink
-              navItem={{ label: "Contact", path: "/" }}
+              navItem={{ label: "Contact", path: "/contact" }}
               appearance={appearance}
             />
           </nav>

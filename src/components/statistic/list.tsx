@@ -63,7 +63,7 @@ export function StatisticList({ statistics }: StatisticListProps) {
         >
           {statistics[i] ? (
             <div className="w-full h-full group-hover:bg-neutral-900 cursor-pointer">
-              <div className="w-full h-full lg:group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out lg:group-hover:rounded-tr-2xl text-center text-balance md:text-left">
+              <div className="w-full h-full group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out group-hover:rounded-tr-2xl text-center text-balance md:text-left">
                 <p className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900 group-hover:from-white group-hover:to-white">
                   <span>{statistics[i].prefix || ""}</span>
                   <span className="font-mono">{statistics[i].amount}</span>

@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
         <VideoBlob />
 
-        <div className="w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
+        <div className="px-4 md:px-0 w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
           <h1 className="text-5xl lg:text-[4rem] font-bold tracking-tighter">
             AideEducation
           </h1>

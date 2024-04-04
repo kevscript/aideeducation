@@ -15,7 +15,7 @@ export function PrimaryButton({
       {...props}
       className={`flex-shrink-0 relative px-6 h-[3.125rem] shadow-[inset_0px_0px_0px_2px] tracking-tighter rounded-tr-lg rounded-bl-lg font-semibold text-transparent justify-center items-center flex ${
         theme === "light" ? "shadow-navy-900" : "shadow-white"
-      }`}
+      } ${className}`}
     >
       <div className="w-full h-full flex justify-center items-center invisible gap-4 pointer-events-none">
         {startIcon && startIcon}

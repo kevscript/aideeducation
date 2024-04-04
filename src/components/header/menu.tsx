@@ -15,12 +15,12 @@ export function Menu() {
             </ul>
 
             <ul className="flex flex-col w-full gap-1">
-              <Link href="/">
+              <Link href="/nous/association">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Association
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/nous/equipe">
                 <li className="bg-gradient-to-r  rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Equipe
                 </li>
@@ -28,12 +28,12 @@ export function Menu() {
             </ul>
 
             <ul className="flex flex-col w-full gap-1">
-              <Link href="/">
+              <Link href="/documentation/orientation">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Orientation
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/documentation/tutoriels">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Tutoriels
                 </li>
@@ -41,17 +41,17 @@ export function Menu() {
             </ul>
 
             <ul className="flex flex-col w-full gap-1">
-              <Link href="/">
+              <Link href="/soutenir/recrutement">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Recrutement
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/soutenir/don">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Faire un don
                 </li>
               </Link>
-              <Link href="/">
+              <Link href="/soutenir/partenaires">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Partenaires
                 </li>
@@ -59,7 +59,7 @@ export function Menu() {
             </ul>
 
             <ul className="flex flex-col w-full gap-1">
-              <Link href="/">
+              <Link href="/contact">
                 <li className="bg-gradient-to-r rounded-full from-10% to-90% from-transparent via-navy-700 to-transparent py-1">
                   Contact
                 </li>

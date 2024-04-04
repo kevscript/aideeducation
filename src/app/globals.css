@@ -18,8 +18,9 @@
   }
 
   .wrapper {
-    width: calc(min(77.5rem, 100% - 2rem));
-    margin: 0 auto;
+    width: calc(min(77.5rem, 100% - 4rem));
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

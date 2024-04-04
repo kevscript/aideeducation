@@ -3,7 +3,7 @@ import { PrimaryButton } from "./primary-button";
 import { SecondaryButton } from "./secondary-button";
 import Link from "next/link";
 
-type ButtonBaseProps = HTMLAttributes<HTMLButtonElement> & {
+type ButtonBaseProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   theme?: "light" | "dark";
   variant?: "primary" | "secondary";
   startIcon?: JSX.Element;
