@@ -22,6 +22,22 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .title-dark {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-neutral-900;
+  }
+
+  .title-light {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white;
+  }
+
+  .up-title-dark {
+    @apply uppercase text-xs text-navy-900 font-semibold;
+  }
+
+  .up-title-light {
+    @apply uppercase text-xs text-navy-700 font-semibold;
+  }
 }
 
 .infinite-scroll {

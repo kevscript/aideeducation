@@ -24,7 +24,7 @@ export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
         faqs.map((faq, i) => (
           <div
             key={i}
-            className={`flex w-full cursor-pointer flex-col overflow-hidden border-b first:pt-0 py-8 gap-4`}
+            className={`flex w-full cursor-pointer flex-col overflow-hidden border-b first:pt-0 py-4 md:py-8  gap-2 md:gap-4`}
             onClick={() => handleActiveFaq(faq.id)}
           >
             <div

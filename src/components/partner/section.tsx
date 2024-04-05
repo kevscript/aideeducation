@@ -9,7 +9,7 @@ const partners = [
 
 export function PartnerSection() {
   return (
-    <section className="md:py-24 w-full relative">
+    <section className="py-16 md:py-24 w-full relative">
       <PartnerMarquee partners={partners} />
     </section>
   );

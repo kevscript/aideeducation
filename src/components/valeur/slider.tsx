@@ -2,7 +2,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 
-export function ValeurSlider() {
+type ValeurSliderProps = {
+  valeurs: any[];
+};
+
+export function ValeurSlider({ valeurs }: ValeurSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -26,24 +30,37 @@ export function ValeurSlider() {
   }, [emblaApi, onSliderSelect]);
 
   return (
-    <div className="flex flex-col gap-4 lg:hidden my-4">
+    <div className="flex flex-col gap-4 lg:hidden">
       <div className="overflow-hidden relative" ref={emblaRef}>
         <div className="flex wrapper gap-2">
-          {Array.from({ length: 6 }).map((x, i) => (
-            <div key={i} className="min-w-0 w-full shrink-0 max-w-96">
-              <div className="flex flex-col p-6 bg-white border rounded-tr-2xl rounded-bl-2xl">
-                <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-                <h3 className="mt-6 text-xl md:text-2xl text-navy-900 tracking-tight font-display font-semibold">
-                  Transmission
-                </h3>
-                <p className="mt-2">
-                  Parce que nous souhaitons contribuer au partage des
-                  connaissances, chaque bénévole d&apos;AideEducation
-                  s&apos;engage à en assurer la transmission.
+          {valeurs.length &&
+            valeurs.map((valeur, i) => (
+              <li
+                key={valeur.id}
+                className="flex shrink-0 flex-col p-8 border bg-white border-neutral-100 max-w-96 w-full rounded-tr-[2rem] pb-16"
+              >
+                <div className="w-16 h-16 rounded-full bg-neutral-50"></div>
+                <h5 className="text-2xl text-navy-900 mt-16 font-semibold tracking-tighter">
+                  {valeur.title}
+                </h5>
+                <p className="mt-4 text-neutral-500 leading-[1.75]">
+                  {valeur.description}
                 </p>
-              </div>
-            </div>
-          ))}
+              </li>
+              // <div key={i} className="min-w-0 w-full shrink-0 max-w-96">
+              //   <div className="flex flex-col p-6 bg-white border rounded-tr-2xl rounded-bl-2xl">
+              //     <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
+              //     <h3 className="mt-6 text-xl md:text-2xl text-navy-900 tracking-tight font-display font-semibold">
+              //       Transmission
+              //     </h3>
+              //     <p className="mt-2">
+              //       Parce que nous souhaitons contribuer au partage des
+              //       connaissances, chaque bénévole d&apos;AideEducation
+              //       s&apos;engage à en assurer la transmission.
+              //     </p>
+              //   </div>
+              // </div>
+            ))}
         </div>
       </div>
 

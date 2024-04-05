@@ -1,4 +1,6 @@
 import { TestimonialCarousel } from "./carousel";
+import { TestimonialDuo } from "./duo";
+import { TestimonialSlider } from "./slider";
 
 const testimonials = [
   {
@@ -36,18 +38,13 @@ const testimonials = [
 ];
 
 export function TestimonialSection() {
-  const sortedTestimonials = [...testimonials].sort((a, b) => {
-    return a.comment.length > b.comment.length ? -1 : 1;
-  });
   return (
-    <section className="w-full relative md:pt-24 bg-gradient-to-b from-navy-900 to-navy-700">
-      <div className="z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
+    <section className="w-full relative py-16 md:pt-24 md:pb-0 bg-gradient-to-b from-navy-900 to-navy-700">
+      <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
       <div className="wrapper">
-        <div className="flex flex-col justify-center items-center text-center w-full">
-          <h3 className="uppercase text-xs text-navy-700 font-semibold">
-            Témoignages
-          </h3>
-          <h5 className="font-display tracking-tighter text-5xl font-semibold text-white mt-4">
+        <div className="flex flex-col justify-center md:items-center md:text-center w-full">
+          <h3 className="up-title-light">Témoignages</h3>
+          <h5 className="title-light text-balance mt-4">
             Votre avis compte pour nous.
           </h5>
           <p className="text-neutral-100 leading-[1.75] max-w-prose text-balance mt-8">
@@ -57,68 +54,8 @@ export function TestimonialSection() {
           </p>
         </div>
       </div>
-      <div className="wrapper mt-16">
-        <div className="w-full mx-auto overflow-hidden aspect-[2/1]">
-          <div className="flex justify-center mx-auto flex-nowrap w-full gap-4">
-            <ul className="flex-1 flex flex-col gap-4 max-w-[25rem] shrink-0">
-              {sortedTestimonials
-                .filter((t, i) => i % 2 === 0)
-                .map((t, i) => (
-                  <div
-                    key={t.id}
-                    className="w-full shrink-0 flex flex-col bg-navy-900/80 backdrop-blur p-8 rounded-tr-2xl border border-navy-700"
-                  >
-                    <h5 className="font-semibold text-white">{t.title}</h5>
-                    <div className="w-full h-[1px] bg-navy-700 my-6"></div>
-                    <p className="text-neutral-100 leading-[1.75]">
-                      {'"' + t.comment + '"'}
-                    </p>
-
-                    <div className="flex flex-nowrap w-full mt-6 gap-4 items-center">
-                      <div className="w-16 h-16 rounded-full bg-navy-700"></div>
-                      <div className="flex flex-col">
-                        <span className="text-lg text-white font-display tracking-tight">
-                          {t.name}
-                        </span>
-                        <span className="font-mono text-sm text-navy-700 tracking-tighter">
-                          {t.date}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </ul>
-            <ul className="flex-1 flex flex-col gap-4 max-w-[25rem] shrink-0">
-              {sortedTestimonials
-                .filter((t, i) => i % 2 !== 0)
-                .map((t, i) => (
-                  <div
-                    key={t.id}
-                    className="w-full  shrink-0 flex flex-col bg-navy-900/80 backdrop-blur p-8 rounded-tr-2xl border border-navy-700"
-                  >
-                    <h5 className="font-semibold text-white">{t.title}</h5>
-                    <div className="w-full h-[1px] bg-navy-700 my-6"></div>
-                    <p className="text-neutral-100 leading-[1.75]">
-                      {'"' + t.comment + '"'}
-                    </p>
-
-                    <div className="flex flex-nowrap w-full mt-6 gap-4 items-center">
-                      <div className="w-16 h-16 rounded-full bg-navy-700"></div>
-                      <div className="flex flex-col">
-                        <span className="text-lg text-white font-display tracking-tight">
-                          {t.name}
-                        </span>
-                        <span className="font-mono text-sm text-navy-700 tracking-tighter">
-                          {t.date}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      <TestimonialDuo testimonials={testimonials} />
+      <TestimonialSlider testimonials={testimonials} />
     </section>
     // <section className="w-full relative bg-gradient-to-br from-navy-700 to-navy-900">
     //   <div className="w-full h-full grid grid-cols-[minmax(1rem,1fr)_minmax(16rem,56rem)_minmax(1rem,1fr)] grid-rows-[4rem_1fr_4rem] lg:grid-rows-[8rem_1fr_8rem]">

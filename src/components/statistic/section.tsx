@@ -2,9 +2,9 @@ import { StatisticList } from "./list";
 
 export function StatisticSection() {
   return (
-    <section className="relative w-full md:py-24 bg-gradient-to-b from-navy-900 to-navy-700">
+    <section className="relative w-full py-16 md:py-24 bg-gradient-to-b from-navy-900 to-navy-700">
       <div className="wrapper">
-        <div className="flex flex-nowrap justify-between gap-16">
+        <div className="flex flex-col-reverse lg:flex-nowrap lg:justify-between gap-8 lg:gap-16">
           <StatisticList
             statistics={[
               {
@@ -36,10 +36,8 @@ export function StatisticSection() {
             ]}
           />
           <div className="flex flex-col w-full max-w-[24rem] text-white shrink-0">
-            <h3 className="uppercase text-xs text-navy-700 font-semibold">
-              Statistiques
-            </h3>
-            <h5 className="font-display tracking-tight text-5xl font-semibold mt-4 text-balance">
+            <h3 className="up-title-light">Statistiques</h3>
+            <h5 className="title-light mt-4 text-balance">
               Notre activité en chiffres.
             </h5>
 

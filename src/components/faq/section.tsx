@@ -5,24 +5,22 @@ import { FaqAccordeon } from "./accordeon";
 
 export function FaqSection() {
   return (
-    <section className="relative w-full md:py-24">
+    <section className="relative w-full py-16 md:py-24">
       <div className="wrapper">
-        <div className="flex flex-nowrap justify-between gap-16">
+        <div className="flex flex-col lg:flex-nowrap lg:justify-between gap-16">
           <div className="flex flex-col w-full max-w-[32rem] shrink-0">
-            <h3 className="uppercase text-xs text-navy-700 font-semibold">
-              FAQ
-            </h3>
-            <h5 className="font-display tracking-tight text-5xl font-semibold mt-4 text-balance">
+            <h3 className="up-title-dark">FAQ</h3>
+            <h5 className="title-dark mt-4 text-balance">
               Les questions qu’on nous pose.
             </h5>
 
             <p className="text-neutral-500 leading-[1.75] mt-8 max-w-96">
               Pour toute autre question ou problème, connectez vous directement
-              à notre serveur Discord et veuillez ouvrir un ticket de support.
-              Vous pouvez également nous contacter par mail.
+              à notre serveur Discord et ouvrez un ticket de support. Vous
+              pouvez également nous contacter par mail.
             </p>
 
-            <div className="flex gap-4 mt-12">
+            <div className="flex flex-col md:flex-row gap-4 mt-8">
               <Button
                 theme="light"
                 startIcon={<DiscordIcon className="w-5 h-5 fill-white" />}
