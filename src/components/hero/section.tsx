@@ -4,7 +4,7 @@ import { VideoBlob } from "./video-blob";
 
 export function HeroSection() {
   return (
-    <section className="relative lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 pt-20 pb-16 rounded-bl-2xl lg:flex justify-center">
+    <section className="relative lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 md:py-24 lg:flex justify-center">
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
         <VideoBlob />
 

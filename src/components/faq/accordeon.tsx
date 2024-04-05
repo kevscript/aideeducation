@@ -19,32 +19,30 @@ export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
   }
 
   return (
-    <ul className="mt-8 w-[56rem] max-w-full">
+    <ul className="flex-1">
       {faqs.length &&
         faqs.map((faq, i) => (
           <div
             key={i}
-            className={`${
-              activeFaqId === faq.id
-                ? "bg-white"
-                : "bg-gradient-to-bl from-white to-neutral-50"
-            } relative flex w-full cursor-pointer flex-col overflow-hidden border border-b-0 border-neutral-100 first:rounded-tr-2xl last:rounded-bl-2xl last:border-b`}
+            className={`flex w-full cursor-pointer flex-col overflow-hidden border-b first:pt-0 py-8 gap-4`}
             onClick={() => handleActiveFaq(faq.id)}
           >
             <div
-              className={`flex justify-between px-4 py-6 transition-colors duration-500 lg:p-8`}
+              className={`relative flex justify-between`}
               aria-expanded={activeFaqId === faq.id}
             >
               <span
                 className={` ${
                   activeFaqId === faq.id ? "text-navy-900" : "text-neutral-900"
-                } font-text font-semibold tracking-tighter lg:text-lg`}
+                } font-semibold tracking-tighter text-2xl`}
               >
                 {faq.question}
               </span>
               <div
-                className={`bg-clip-text text-transparent absolute right-4 top-4 bg-gradient-to-b from-navy-700 to-navy-900 text-2xl duration-500 lg:right-6 lg:text-4xl ${
-                  activeFaqId === faq.id && `rotate-45 duration-500`
+                className={`absolute top-0 right-0 text-2xl duration-500 lg:text-4xl ${
+                  activeFaqId === faq.id
+                    ? `rotate-45 duration-500 text-navy-700`
+                    : "text-neutral-900"
                 }`}
               >
                 +
@@ -55,8 +53,8 @@ export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
               className={`grid grid-rows-[0fr] text-neutral-900 transition-all duration-500 aria-[hidden=false]:grid-rows-[1fr]`}
               aria-hidden={!(activeFaqId === faq.id)}
             >
-              <div className="w-full overflow-hidden md:pr-8">
-                <p className="whitespace-pre-wrap px-4 pb-6 pr-8 leading-relaxed lg:px-8">
+              <div className={`w-full overflow-hidden`}>
+                <p className="whitespace-pre-wrap leading-relaxed max-w-prose">
                   {faq.answer}
                 </p>
               </div>

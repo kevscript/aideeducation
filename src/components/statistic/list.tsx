@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { PageTitle } from "../page-title";
 
 type Statistic = {
   prefix?: string;
@@ -26,7 +27,7 @@ export function StatisticList({ statistics }: StatisticListProps) {
       if (gridColumnCount === 1 && cellCount !== statistics.length) {
         setCellCount(statistics.length);
       } else {
-        const hangingCells = (statistics.length + 2) % gridColumnCount;
+        const hangingCells = statistics.length % gridColumnCount;
         const fillCells = hangingCells ? gridColumnCount - hangingCells : 0;
         setCellCount(statistics.length + fillCells);
       }
@@ -44,34 +45,23 @@ export function StatisticList({ statistics }: StatisticListProps) {
 
   return (
     <div
-      className="z-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      className="flex-1 z-0 grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] bg-navy-700 gap-[1px] border-[1px] border-navy-700"
       ref={gridRef}
     >
-      <div className="w-full col-span-1 md:col-span-2 border border-neutral-100 md:border-none p-8 flex flex-col gap-2">
-        <p className="text-xl md:text-2xl lg:text-4xl font-bold tracking-tighter text-balance text-center lg:text-left">
-          L&apos;activité de l&apos;association en{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900">
-            quelques chiffres
-          </span>
-          .
-        </p>
-      </div>
       {Array.from({ length: cellCount }).map((x, i) => (
         <div
           key={i}
-          className="relative w-full min-h-16 lg:min-h-64 group border border-neutral-100"
+          className="relative group md:min-h-32 lg:min-h-64 bg-navy-900"
         >
           {statistics[i] ? (
-            <div className="w-full h-full group-hover:bg-neutral-900 cursor-pointer">
-              <div className="w-full h-full group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out group-hover:rounded-tr-2xl text-center text-balance md:text-left">
-                <p className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900 group-hover:from-white group-hover:to-white">
+            <div className="w-full h-full group-hover:bg-neutral-900/50 cursor-pointer">
+              <div className="w-full h-full group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out group-hover:rounded-tr-2xl text-balance">
+                <p className="text-5xl font-semibold font-mono tracking-tight text-white">
                   <span>{statistics[i].prefix || ""}</span>
                   <span className="font-mono">{statistics[i].amount}</span>
                   <span>{statistics[i].suffix || ""}</span>
                 </p>
-                <p className="tracking-tight group-hover:text-white">
-                  {statistics[i].description}
-                </p>
+                <p className="text-neutral-100">{statistics[i].description}</p>
               </div>
             </div>
           ) : (

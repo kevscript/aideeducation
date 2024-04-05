@@ -1,3 +1,4 @@
+import { PageTitle } from "../page-title";
 import { ValeurList } from "./list";
 import { ValeurSlider } from "./slider";
 
@@ -48,20 +49,30 @@ const valeurs = [
 
 export function ValeurSection() {
   return (
-    <section className="relative w-full py-16 xl:py-24 bg-gradient-to-b from-neutral-50 to-transparent">
-      <div className="flex flex-col md:gap-16">
-        <div className="lg:hidden w-full col-span-1 md:col-span-2 border border-neutral-100 md:border-none p-8 pt-0 flex flex-col gap-2">
-          <p className="text-xl md:text-2xl lg:text-4xl font-bold tracking-tighter text-balance text-center lg:text-left">
-            Ces{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-navy-700 to-navy-900">
-              valeurs
-            </span>{" "}
-            nous accompagnent au quotidien.
-          </p>
+    <section className="relative w-full md:py-24">
+      <div className="wrapper mb-24">
+        <div className="flex flex-nowrap justify-between w-full items-end gap-16">
+          <div className="flex flex-col gap-4 max-w-[32rem] w-full">
+            <h3 className="uppercase text-xs text-navy-900 font-semibold">
+              Valeurs
+            </h3>
+            <h5 className="font-display tracking-tighter text-5xl font-semibold">
+              Les piliers de notre communauté.
+            </h5>
+          </div>
+
+          <div className="max-w-[32rem] w-full flex flex-col">
+            <p className="text-neutral-500 leading-[1.75]">
+              Guidés par nos valeurs, nous œuvrons chaque jour à créer un
+              environnement où l&apos;empathie et le respect sont au cœur de
+              chaque interaction.
+            </p>
+          </div>
         </div>
-        <ValeurSlider />
-        <ValeurList valeurs={valeurs} />
       </div>
+
+      <ValeurSlider />
+      <ValeurList valeurs={valeurs} />
     </section>
   );
 }

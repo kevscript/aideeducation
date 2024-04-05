@@ -13,7 +13,7 @@ export function SecondaryButton({
   return (
     <button
       {...props}
-      className={`bg-inherit relative px-6 h-[3.125rem] shadow-[inset_0px_0px_0px_2px] tracking-tighter rounded-tr-lg rounded-bl-lg font-semibold text-transparent flex justify-center items-center ${
+      className={`bg-inherit relative px-6 h-[3.125rem] shadow-[inset_0px_0px_0px_1px] tracking-tighter rounded-tr-lg rounded-bl-lg font-semibold text-transparent flex justify-center items-center ${
         theme === "light" ? "shadow-navy-900" : "shadow-white"
       } ${className}`}
     >

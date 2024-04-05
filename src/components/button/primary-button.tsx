@@ -13,7 +13,7 @@ export function PrimaryButton({
   return (
     <button
       {...props}
-      className={`flex-shrink-0 relative px-6 h-[3.125rem] shadow-[inset_0px_0px_0px_2px] tracking-tighter rounded-tr-lg rounded-bl-lg font-semibold text-transparent justify-center items-center flex ${
+      className={`flex-shrink-0 relative px-6 h-[3.125rem] shadow-[inset_0px_0px_0px_1px] tracking-tighter rounded-tr-lg rounded-bl-lg font-semibold text-transparent justify-center items-center flex ${
         theme === "light" ? "shadow-navy-900" : "shadow-white"
       } ${className}`}
     >

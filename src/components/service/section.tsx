@@ -1,3 +1,4 @@
+import { PageTitle } from "../page-title";
 import { ServiceCatalogue } from "./catalogue";
 import { ServiceSlider } from "./slider";
 
@@ -34,11 +35,29 @@ const services = [
 
 export function ServiceSection() {
   return (
-    <section className="relative pt-16 pb-8 md:pb-16 lg:py-24 xl:py-24 w-full">
-      <div className="w-full flex flex-col gap-16">
-        <ServiceSlider services={services} />
-        <ServiceCatalogue services={services} />
+    <section className="relative w-full md:py-24">
+      <div className="wrapper mb-24">
+        <div className="flex flex-nowrap justify-between w-full items-end gap-16">
+          <div className="flex flex-col gap-4 max-w-[32rem] w-full">
+            <h3 className="uppercase text-xs text-navy-900 font-semibold">
+              Services
+            </h3>
+            <h5 className="font-display tracking-tighter text-5xl font-semibold">
+              Un soutien sur mesure adapté à vos besoins.
+            </h5>
+          </div>
+
+          <div className="max-w-[32rem] w-full flex flex-col">
+            <p className="text-neutral-500 leading-[1.75]">
+              Transformez les défis scolaires en opportunités
+              d&apos;apprentissage avec nos services personnalisés, adaptés aux
+              besoins uniques de chaque étudiant.
+            </p>
+          </div>
+        </div>
       </div>
+      <ServiceSlider services={services} />
+      <ServiceCatalogue services={services} />
     </section>
   );
 }
