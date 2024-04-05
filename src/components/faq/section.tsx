@@ -7,7 +7,7 @@ export function FaqSection() {
   return (
     <section className="relative w-full py-16 md:py-24">
       <div className="wrapper">
-        <div className="flex flex-col lg:flex-nowrap lg:justify-between gap-16">
+        <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between gap-16">
           <div className="flex flex-col w-full max-w-[32rem] shrink-0">
             <h3 className="up-title-dark">FAQ</h3>
             <h5 className="title-dark mt-4 text-balance">

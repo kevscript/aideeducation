@@ -4,7 +4,7 @@ export function StatisticSection() {
   return (
     <section className="relative w-full py-16 md:py-24 bg-gradient-to-b from-navy-900 to-navy-700">
       <div className="wrapper">
-        <div className="flex flex-col-reverse lg:flex-nowrap lg:justify-between gap-8 lg:gap-16">
+        <div className="flex flex-col-reverse xl:flex-row xl:flex-nowrap xl:justify-between gap-8 lg:gap-16">
           <StatisticList
             statistics={[
               {

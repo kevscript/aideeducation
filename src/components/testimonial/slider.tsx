@@ -56,7 +56,7 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
             testimonials.map((t, i) => (
               <div
                 key={t.id}
-                className="w-full  shrink-0 flex flex-col bg-navy-900/80 backdrop-blur p-8 rounded-tr-2xl border border-navy-700"
+                className="w-full  shrink-0 flex flex-col bg-navy-900/80 backdrop-blur p-8 rounded-tr-2xl border border-navy-700 max-w-96"
               >
                 <h5 className="font-semibold text-white">{t.title}</h5>
                 <div className="w-full h-[1px] bg-navy-700 my-6"></div>

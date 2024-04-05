@@ -39,7 +39,7 @@ const testimonials = [
 
 export function TestimonialSection() {
   return (
-    <section className="w-full relative py-16 md:pt-24 md:pb-0 bg-gradient-to-b from-navy-900 to-navy-700">
+    <section className="w-full relative py-16 md:py-24 lg:pb-0 bg-gradient-to-b from-navy-900 to-navy-700">
       <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
       <div className="wrapper">
         <div className="flex flex-col justify-center md:items-center md:text-center w-full">

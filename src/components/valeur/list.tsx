@@ -10,7 +10,7 @@ export function ValeurList({ valeurs }: ValeurListProps) {
           valeurs.map((valeur) => (
             <li
               key={valeur.id}
-              className="flex shrink-0 flex-col p-12 border border-neutral-100 max-w-96 w-full rounded-tr-[2rem] pb-32"
+              className="flex shrink-0 flex-col p-12 border bg-white border-neutral-100 max-w-96 w-full rounded-tr-[2rem] pb-32"
             >
               <div className="w-16 h-16 rounded-full bg-neutral-50"></div>
               <h5 className="text-2xl text-navy-900 mt-16 font-semibold tracking-tighter">
