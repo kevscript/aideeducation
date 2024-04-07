@@ -1,8 +1,12 @@
+import { getSocials } from "@/cms/api";
 import { Button } from "../button";
 import { DiscordIcon } from "../icons/discord";
 import { VideoBlob } from "./video-blob";
 
-export function HeroSection() {
+export async function HeroSection() {
+  const socials = await getSocials();
+  const discord = socials.find((s) => s.name.toLowerCase() === "discord");
+
   return (
     <section className="relative lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 py-16 md:py-24 lg:flex justify-center">
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
@@ -19,12 +23,19 @@ export function HeroSection() {
           <div className="flex flex-col w-full gap-4 mt-8 lg:mt-12 lg:flex-row">
             <Button
               theme="dark"
+              as="anchor"
+              href={discord?.link || "/"}
               startIcon={<DiscordIcon className="w-5 h-5 fill-navy-900" />}
             >
               Rejoindre notre Discord
             </Button>
 
-            <Button theme="dark" variant="secondary">
+            <Button
+              theme="dark"
+              as="link"
+              href="/soutenir/recrutement"
+              variant="secondary"
+            >
               Devenir Bénévole
             </Button>
           </div>

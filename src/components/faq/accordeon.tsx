@@ -1,8 +1,9 @@
 "use client";
+import { Faq } from "@/cms/types";
 import { useState } from "react";
 
 type FaqAccordeonProps = {
-  faqs: any[];
+  faqs: Faq[];
 };
 
 export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
@@ -34,7 +35,7 @@ export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
               <span
                 className={` ${
                   activeFaqId === faq.id ? "text-navy-900" : "text-neutral-900"
-                } font-semibold tracking-tighter text-2xl`}
+                } font-semibold tracking-tighter text-lg lg:text-2xl`}
               >
                 {faq.question}
               </span>
@@ -53,8 +54,8 @@ export const FaqAccordeon = ({ faqs }: FaqAccordeonProps) => {
               className={`grid grid-rows-[0fr] text-neutral-900 transition-all duration-500 aria-[hidden=false]:grid-rows-[1fr]`}
               aria-hidden={!(activeFaqId === faq.id)}
             >
-              <div className={`w-full overflow-hidden`}>
-                <p className="whitespace-pre-wrap leading-relaxed max-w-prose">
+              <div className={`w-full overflow-hidden pr-4 md:pr-8 lg:pr-16`}>
+                <p className="whitespace-pre-wrap leading-[1.75] text-neutral-500 max-w-prose">
                   {faq.answer}
                 </p>
               </div>

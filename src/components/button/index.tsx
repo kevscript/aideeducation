@@ -47,7 +47,11 @@ export function Button({ variant = "primary", ...props }: ButtonProps) {
 
   if (props.as === "link") {
     return (
-      <Link href={props.href} passHref className="bg-inherit">
+      <Link
+        href={props.href}
+        passHref
+        className={`bg-inherit ${props.className}`}
+      >
         {variant === "secondary" ? (
           <SecondaryButton {...props} />
         ) : (

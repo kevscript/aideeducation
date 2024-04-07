@@ -1,40 +1,14 @@
+import { getStatistics } from "@/cms/api";
 import { StatisticList } from "./list";
 
-export function StatisticSection() {
+export async function StatisticSection() {
+  const statistics = await getStatistics();
+
   return (
     <section className="relative w-full py-16 md:py-24 bg-gradient-to-b from-navy-900 to-navy-700">
       <div className="wrapper">
         <div className="flex flex-col-reverse xl:flex-row xl:flex-nowrap xl:justify-between gap-8 lg:gap-16">
-          <StatisticList
-            statistics={[
-              {
-                amount: 2064,
-                suffix: "+",
-                description: "membres de la communauté.",
-              },
-              {
-                amount: 24,
-                prefix: "<",
-                suffix: "h",
-                description: "temps de traitement moyen des tickets.",
-              },
-              {
-                amount: 68,
-                description: "bénévoles à votre service.",
-              },
-              {
-                amount: 2064,
-                suffix: "+",
-                description: "membres de la communauté.",
-              },
-              {
-                amount: 24,
-                prefix: "<",
-                suffix: "h",
-                description: "temps de traitement moyen des tickets.",
-              },
-            ]}
-          />
+          <StatisticList statistics={statistics} />
           <div className="flex flex-col w-full max-w-[24rem] text-white shrink-0">
             <h3 className="up-title-light">Statistiques</h3>
             <h5 className="title-light mt-4 text-balance">

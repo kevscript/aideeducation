@@ -1,53 +1,55 @@
+import { getValeurs } from "@/cms/api";
 import { PageTitle } from "../page-title";
 import { ValeurList } from "./list";
 import { ValeurSlider } from "./slider";
 
-const valeurs = [
-  {
-    id: "1",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-  {
-    id: "2",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-  {
-    id: "3",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-  {
-    id: "4",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-  {
-    id: "5",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-  {
-    id: "6",
-    title: "Transmission",
-    description:
-      "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-    iconUrl: undefined,
-  },
-];
+// const valeurs = [
+//   {
+//     id: "1",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+//   {
+//     id: "2",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+//   {
+//     id: "3",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+//   {
+//     id: "4",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+//   {
+//     id: "5",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+//   {
+//     id: "6",
+//     title: "Transmission",
+//     description:
+//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
+//     iconUrl: undefined,
+//   },
+// ];
 
-export function ValeurSection() {
+export async function ValeurSection() {
+  const valeurs = await getValeurs();
   return (
     <section className="relative w-full py-16 md:py-24 bg-gradient-to-b lg:bg-transparent from-transparent to-neutral-50">
       <div className="wrapper mb-8 lg:mb-16">

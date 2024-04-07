@@ -20,7 +20,7 @@ export const NavDropdown = ({
           className={`${
             appearance === "light"
               ? "text-white"
-              : "group-hover/link:text-navy-900"
+              : "group-hover/link:text-navy-700"
           } font-text tracking-tight`}
         >
           {navItem.label}
@@ -28,7 +28,7 @@ export const NavDropdown = ({
         <ChevronIcon
           className={`${
             appearance === "light" ? "fill-white" : "fill-neutral-900"
-          } w-3 group-hover/link:-rotate-180`}
+          } w-2.5 group-hover/link:-rotate-180`}
         />
       </div>
 
@@ -40,7 +40,7 @@ export const NavDropdown = ({
             <Link key={i} href={dropdownItem.path} className="group/dropdown">
               <li className="w-full rounded p-2 hover:bg-gradient-to-b hover:from-neutral-50 hover:to-neutral-100">
                 <span
-                  className={`font-text tracking-tight text-neutral-900 group-hover/dropdown:text-navy-900`}
+                  className={`font-text tracking-tight text-neutral-900 group-hover/dropdown:text-navy-700`}
                 >
                   {dropdownItem.label}
                 </span>

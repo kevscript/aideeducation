@@ -12,7 +12,7 @@ export const NavLink = ({ navItem, appearance = "dark" }: NavLinkProps) => {
       <li>
         <span
           className={`${
-            appearance === "light" ? "text-white" : "group-hover:text-navy-500"
+            appearance === "light" ? "text-white" : "group-hover:text-navy-700"
           } font-text tracking-tight`}
         >
           {navItem.label}

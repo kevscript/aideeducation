@@ -1,50 +1,69 @@
-export default function PartnerPage() {
+import { getPartners } from "@/cms/api";
+
+export default async function PartnerPage() {
+  const partners = await getPartners();
+
   return (
-    <main className="py-24">
-      <div className="wrapper flex flex-col gap-2">
-        <h1 className="tracking-tight">Partenaires</h1>
-        <h3 className="text-2xl font-semibold tracking-tighter">
-          Ils nous font
-          <span className="pl-1.5 pr-0.5 bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
-            confiance
-          </span>
-          .
-        </h3>
+    <main className="pb-24">
+      <div className="w-full bg-gradient-to-b lg:bg-gradient-to-r from-navy-900 to-navy-700 pt-24 lg:pt-40 pb-16 border-b-4 border-navy-700">
+        <div className="wrapper">
+          <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between lg:w-full lg:items-end gap-8 xl:gap-16">
+            <div className="flex flex-col gap-4 flex-1">
+              <h3 className="up-title-light">Partenaires</h3>
+              <h5 className="title-light">Ils nous font confiance.</h5>
+            </div>
+            <div className="hidden w-[1px]"></div>
+            <div className="flex-1 flex flex-col">
+              <p className="text-white leading-[1.75] lg:max-w-[32rem] ">
+                Nous sommes fiers de compter sur un réseau de partenaires
+                engagés qui soutiennent nos activités. Découvrez les
+                organisations qui contribuent à notre impact positif sur
+                l&apos;éducation.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="wrapper mt-12">
-        <ul className="grid grid-col-1 gap-4">
-          {Array.from({ length: 4 }).map((x, i) => (
-            <li
-              key={i}
-              className="w-full bg-gradient-to-br from-white to-neutral-50 p-8 flex flex-col gap-8 rounded-tr-2xl rounded-bl-2xl border border-neutral-100"
-            >
-              <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
+      <div className="wrapper mt-12 lg:mt-16">
+        <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
+          {partners.length &&
+            partners.map((partner, i) => (
+              <li key={i} className="w-full card p-8 flex flex-col gap-8">
+                <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
 
-              <div className="flex flex-col gap-4">
-                <h5 className="text-2xl font-semibold tracking-tighter text-navy-900">
-                  Google
-                </h5>
-                <div className="flex flex-col gap-2">
-                  <p>
-                    Site dédié à l&apos;orientation, avec renseignements sur les
-                    formations, filières, etc. ainsi que des articles et
-                    conseils au sujet de l&apos;orientation, mais surtout, qui
-                    recense les prochains salons de l&apos;orientation qui se
-                    dérouleront partout en France.
-                  </p>
+                <div className="flex flex-col gap-4">
+                  <h5 className="text-2xl font-semibold tracking-tighter text-navy-900">
+                    {partner.name}
+                  </h5>
+
+                  {partner.description && (
+                    <div className="flex flex-col gap-2">
+                      <p className="leading-[1.75] text-neutral-500 whitespace-pre-wrap">
+                        {partner.description}
+                      </p>
+                    </div>
+                  )}
                 </div>
-              </div>
 
-              <ul className="flex flex-wrap gap-4">
-                <a className="py-2 px-4 bg-navy-50 flex justify-center items-center rounded">
-                  <span className="text-navy-700 text-sm tracking-tight">
-                    Site Internet
-                  </span>
-                </a>
-              </ul>
-            </li>
-          ))}
+                {partner.links && (
+                  <ul className="flex flex-wrap gap-4">
+                    {partner.links.map((l) => (
+                      <a
+                        key={l.id}
+                        className="py-2 px-4 bg-navy-50 flex justify-center items-center cursor-pointer rounded"
+                        href={l.link}
+                        target="_blank"
+                      >
+                        <span className="text-navy-700 text-sm tracking-tight">
+                          {l.label}
+                        </span>
+                      </a>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
         </ul>
       </div>
     </main>

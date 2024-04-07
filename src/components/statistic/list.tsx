@@ -1,13 +1,13 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { PageTitle } from "../page-title";
+import { Statistic } from "@/cms/types";
 
-type Statistic = {
-  prefix?: string;
-  amount: number;
-  suffix?: string;
-  description: string;
-};
+// type Statistic = {
+//   prefix?: string;
+//   amount: number;
+//   suffix?: string;
+//   description: string;
+// };
 
 type StatisticListProps = {
   statistics: Statistic[];
@@ -57,9 +57,7 @@ export function StatisticList({ statistics }: StatisticListProps) {
             <div className="w-full h-full group-hover:bg-neutral-900/50 cursor-pointer">
               <div className="w-full h-full lg:group-hover:absolute z-10 bottom-0 p-8 flex gap-2 flex-col group-hover:bg-gradient-to-bl from-navy-700 to-navy-900 lg:group-hover:translate-x-2 lg:group-hover:-translate-y-2 transition-all duration-300 ease-in-out lg:group-hover:rounded-tr-2xl">
                 <p className="text-5xl font-semibold font-mono tracking-tight text-white">
-                  <span>{statistics[i].prefix || ""}</span>
-                  <span className="font-mono">{statistics[i].amount}</span>
-                  <span>{statistics[i].suffix || ""}</span>
+                  <span className="font-mono">{statistics[i].title}</span>
                 </p>
                 <p className="text-neutral-100">{statistics[i].description}</p>
               </div>

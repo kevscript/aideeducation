@@ -18,7 +18,7 @@ export function Header() {
   const [menuStatus, setMenuStatus] = useState<MenuStatus>("close");
   const [isPageTop, setIsPageTop] = useState(true);
   const pathname = usePathname();
-  const isOnDarkBg = useMemo(() => pathname === "/", [pathname]);
+  const isOnDarkBg = useMemo(() => true, []);
   const appearance: HeaderAppearance = useMemo(() => {
     return isOnDarkBg && isPageTop ? "light" : "dark";
   }, [isOnDarkBg, isPageTop]);
@@ -67,7 +67,7 @@ export function Header() {
         className={`w-full z-50 fixed top-0 left-0  transition ${
           isPageTop || menuStatus === "open"
             ? "bg-transparent"
-            : "bg-white/90 shadow-sm backdrop-blur"
+            : "bg-white/95 shadow-sm backdrop-blur"
         }`}
       >
         <div className="wrapper flex justify-between flex-nowrap items-center h-16 w-full">

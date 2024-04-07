@@ -1,5 +1,7 @@
+import { TeamValue } from "@/cms/types";
+
 type ValeurListProps = {
-  valeurs: any[];
+  valeurs: TeamValue[];
 };
 
 export function ValeurList({ valeurs }: ValeurListProps) {

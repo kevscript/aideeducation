@@ -1,13 +1,13 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
-import Image from "next/image";
+import { Job } from "@/cms/types";
 
-type RecrutementSliderProps = {
-  jobs: any[];
+type JobSliderProps = {
+  jobs: Job[];
 };
 
-export function RecrutementSlider({ jobs }: RecrutementSliderProps) {
+export function JobSlider({ jobs }: JobSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -31,13 +31,13 @@ export function RecrutementSlider({ jobs }: RecrutementSliderProps) {
   }, [emblaApi, onSliderSelect]);
 
   return (
-    <div className="lg:hidden">
+    <>
       <div className="overflow-hidden relative" ref={emblaRef}>
-        <div className="flex wrapper gap-2">
-          {jobs.map((job, i) => (
+        <div className="flex wrapper gap-4">
+          {jobs.map((job) => (
             <div
               key={job.id}
-              className="min-w-0 w-full flex-shrink-0 max-w-96 bg-gradient-to-b from-white to-neutral-50 border border-neutral-100 rounded-tr-2xl rounded-bl-2xl p-6 flex flex-col gap-8"
+              className="card min-w-0 w-full flex-shrink-0 max-w-96 rounded-tr-3xl p-6 flex flex-col gap-8"
             >
               <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
 
@@ -51,12 +51,12 @@ export function RecrutementSlider({ jobs }: RecrutementSliderProps) {
               <div className="flex justify-end mt-auto">
                 <span
                   className={`font-display px-2 py-1 rounded font-semibold ${
-                    job.available
+                    job.status === "active"
                       ? "text-navy-700 bg-navy-50"
                       : "text-neutral-400 bg-neutral-100"
                   }`}
                 >
-                  {job.available ? "Actif" : "Inactif"}
+                  {job.status === "active" ? "Actif" : "Inactif"}
                 </span>
               </div>
             </div>
@@ -86,6 +86,6 @@ export function RecrutementSlider({ jobs }: RecrutementSliderProps) {
           </span>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,66 +1,44 @@
-export default function EquipePage() {
+import { getMembers } from "@/cms/api";
+import { MemberCard } from "@/components/equipe/member-card";
+import { DepartmentFilter } from "@/components/equipe/department-filter";
+import { PageHeader } from "@/components/page-header";
+
+export default async function EquipePage() {
+  const members = await getMembers();
+
   return (
-    <main className="py-24">
-      <div className="wrapper flex flex-col gap-2">
-        <h1>L&apos;Equipe</h1>
-        <h3 className="text-2xl font-semibold tracking-tighter">
-          Découvrez nos
-          <span className="pl-1 pr-0.5 bg-clip-text text-transparent bg-gradient-to-r from-navy-700 to-navy-900">
-            Bénévoles
-          </span>
-          .
-        </h3>
+    <main className="pb-24">
+      <PageHeader>
+        <div className="wrapper">
+          <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between lg:w-full lg:items-end gap-8 xl:gap-16">
+            <div className="flex flex-col gap-4 flex-1">
+              <h3 className="up-title-light">équipe</h3>
+              <h5 className="title-light text-balance">
+                Découvrez notre équipe de bénévoles.
+              </h5>
+            </div>
+            <div className="hidden w-[1px]"></div>
+            <div className="flex-1 flex flex-col">
+              <p className="text-white leading-[1.75] lg:max-w-[32rem] ">
+                Notre association est fière de compter sur une équipe dévouée de
+                bénévoles passionnés, prêts à partager leurs connaissances et
+                leur expérience pour soutenir notre mission.
+              </p>
+            </div>
+          </div>
+        </div>
+      </PageHeader>
+
+      <div className="wrapper mt-12 lg:mt-16 flex lg:justify-center">
+        <DepartmentFilter />
       </div>
 
-      <div className="wrapper">
-        <ul className="flex flex-wrap gap-4 my-8">
-          <li className="px-4 py-2 rounded-full shrink-0 flex justify-center items-center bg-neutral-50">
-            <span className="text-sm">Tous</span>
-          </li>
-          <li className="px-4 py-2 rounded-full shrink-0 flex justify-center items-center bg-neutral-50">
-            <span className="text-sm">Direction Générale</span>
-          </li>
-          <li className="px-4 py-2 rounded-full shrink-0 flex justify-center items-center bg-neutral-50">
-            <span className="text-sm">Dept. Pédagogique</span>
-          </li>
-          <li className="px-4 py-2 rounded-full shrink-0 flex justify-center items-center bg-neutral-50">
-            <span className="text-sm">Dept. Intérieur</span>
-          </li>
-          <li className="px-4 py-2 rounded-full shrink-0 flex justify-center items-center bg-neutral-50">
-            <span className="text-sm">Dept. Exterieur</span>
-          </li>
-        </ul>
-      </div>
-
-      <div className="wrapper">
-        <ul className="w-full flex flex-col">
-          <li className="relative w-full py-8 px-5 flex flex-nowrap gap-4 items-center bg-gradient-to-b from-white to-neutral-50 border border-neutral-50">
-            <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-            <div className="flex flex-col flex-1">
-              <span className="font-bold font-display">Kévin Ostafinski</span>
-              <span className="tracking-tighter text-navy-900 text-sm">
-                Développeur
-              </span>
-            </div>
-          </li>
-          <li className="relative w-full py-8 px-5 flex flex-nowrap gap-4 items-center bg-gradient-to-b from-white to-neutral-50 border border-neutral-50">
-            <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-            <div className="flex flex-col flex-1">
-              <span className="font-bold font-display">Kévin Ostafinski</span>
-              <span className="tracking-tighter text-navy-900 text-sm">
-                Développeur
-              </span>
-            </div>
-          </li>
-          <li className="relative w-full py-8 px-5 flex flex-nowrap gap-4 items-center bg-gradient-to-b from-white to-neutral-50 border border-neutral-50">
-            <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-            <div className="flex flex-col flex-1">
-              <span className="font-bold font-display">Kévin Ostafinski</span>
-              <span className="tracking-tighter text-navy-900 text-sm">
-                Développeur
-              </span>
-            </div>
-          </li>
+      <div className="wrapper mt-8">
+        <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
+          {members.length &&
+            members.map((member) => (
+              <MemberCard member={member} key={member.id} />
+            ))}
         </ul>
       </div>
     </main>

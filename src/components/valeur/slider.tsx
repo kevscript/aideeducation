@@ -1,9 +1,10 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
+import { TeamValue } from "@/cms/types";
 
 type ValeurSliderProps = {
-  valeurs: any[];
+  valeurs: TeamValue[];
 };
 
 export function ValeurSlider({ valeurs }: ValeurSliderProps) {
@@ -47,19 +48,6 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
                   {valeur.description}
                 </p>
               </li>
-              // <div key={i} className="min-w-0 w-full shrink-0 max-w-96">
-              //   <div className="flex flex-col p-6 bg-white border rounded-tr-2xl rounded-bl-2xl">
-              //     <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-              //     <h3 className="mt-6 text-xl md:text-2xl text-navy-900 tracking-tight font-display font-semibold">
-              //       Transmission
-              //     </h3>
-              //     <p className="mt-2">
-              //       Parce que nous souhaitons contribuer au partage des
-              //       connaissances, chaque bénévole d&apos;AideEducation
-              //       s&apos;engage à en assurer la transmission.
-              //     </p>
-              //   </div>
-              // </div>
             ))}
         </div>
       </div>

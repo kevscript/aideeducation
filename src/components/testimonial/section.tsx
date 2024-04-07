@@ -1,3 +1,4 @@
+import { getTestimonials } from "@/cms/api";
 import { TestimonialCarousel } from "./carousel";
 import { TestimonialDuo } from "./duo";
 import { TestimonialSlider } from "./slider";
@@ -37,7 +38,9 @@ const testimonials = [
   },
 ];
 
-export function TestimonialSection() {
+export async function TestimonialSection() {
+  const testimonials = await getTestimonials();
+
   return (
     <section className="w-full relative py-16 md:py-24 lg:pb-0 bg-gradient-to-b from-navy-900 to-navy-700">
       <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>

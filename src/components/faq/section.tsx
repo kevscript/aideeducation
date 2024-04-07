@@ -1,9 +1,13 @@
+import { getFaqs, getSocials } from "@/cms/api";
 import { Button } from "../button";
 import { DiscordIcon } from "../icons/discord";
-import { PageTitle } from "../page-title";
 import { FaqAccordeon } from "./accordeon";
 
-export function FaqSection() {
+export async function FaqSection() {
+  const faqs = await getFaqs();
+  const socials = await getSocials();
+  const discord = socials.find((s) => s.name.toLowerCase() === "discord");
+
   return (
     <section className="relative w-full py-16 md:py-24">
       <div className="wrapper">
@@ -23,22 +27,18 @@ export function FaqSection() {
             <div className="flex flex-col md:flex-row gap-4 mt-8">
               <Button
                 theme="light"
+                as="anchor"
+                href={discord?.link || "/"}
                 startIcon={<DiscordIcon className="w-5 h-5 fill-white" />}
               >
                 Rejoindre Discord
               </Button>
-              <Button variant="secondary">Contactez-nous</Button>
+              <Button variant="secondary" as="link" href="/contact">
+                Contactez-nous
+              </Button>
             </div>
           </div>
-          <FaqAccordeon
-            faqs={[
-              { id: "1", question: "question", answer: "answer" },
-              { id: "2", question: "question", answer: "answer" },
-              { id: "3", question: "question", answer: "answer" },
-              { id: "4", question: "question", answer: "answer" },
-              { id: "5", question: "question", answer: "answer" },
-            ]}
-          />
+          <FaqAccordeon faqs={faqs} />
         </div>
       </div>
     </section>
