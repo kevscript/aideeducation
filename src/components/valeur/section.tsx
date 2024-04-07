@@ -70,7 +70,7 @@ export async function ValeurSection() {
       </div>
 
       <ValeurSlider valeurs={valeurs} />
-      <ValeurList valeurs={valeurs} />
+      {/* <ValeurList valeurs={valeurs} /> */}
     </section>
   );
 }

@@ -1,10 +1,24 @@
 import { PartnerMarquee } from "./marquee";
 
 const partners = [
-  { id: "1", name: "S3A", logoUrl: "/s3a.svg", description: "" },
-  { id: "2", name: "Google", logoUrl: "/google.svg", description: "" },
-  { id: "3", name: "Herouville", logoUrl: "/herouville.svg", description: "" },
-  { id: "4", name: "Shield", logoUrl: "/shield.svg", description: "" },
+  {
+    id: "1",
+    name: "Maison des Associations - S3A",
+    logoUrl: "/s3a.svg",
+    description: "",
+  },
+  {
+    id: "2",
+    name: "Google for Nonprofits",
+    logoUrl: "/google.svg",
+    description: "",
+  },
+  {
+    id: "3",
+    name: "Herouville-St-Clair",
+    logoUrl: "/herouville.svg",
+    description: "",
+  },
 ];
 
 export function PartnerSection() {

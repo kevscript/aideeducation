@@ -20,7 +20,7 @@ export function AssociationTimeline({ events }: AssociationTimelineProps) {
               {new Date(ev.date).toLocaleDateString("fr-FR")}
             </span>
             <ul className="w-3 h-3 border-navy-700 border-2 rounded-full bg-white mt-2"></ul>
-            <p className="text-sm mt-4 text-balance font-semibold tracking-tighter group-hover:text-navy-700">
+            <p className="text-sm mt-4 text-balance font-semibold tracking-tighter group-hover:text-navy-900">
               {ev.title}
             </p>
           </li>

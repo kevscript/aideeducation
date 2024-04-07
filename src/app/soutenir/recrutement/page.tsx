@@ -1,6 +1,11 @@
 import { getJobs, getSocials } from "@/cms/api";
 import { Button } from "@/components/button";
+import { BulbIcon } from "@/components/icons/bulb";
+import { CalendarIcon } from "@/components/icons/calendar";
 import { DiscordIcon } from "@/components/icons/discord";
+import { LaptopIcon } from "@/components/icons/laptop";
+import { MicrophoneIcon } from "@/components/icons/microphone";
+import { PeaceIcon } from "@/components/icons/peace";
 import { PageHeader } from "@/components/page-header";
 import { JobGrid } from "@/components/recrutement/job-grid";
 import { JobSlider } from "@/components/recrutement/job-slider";
@@ -95,14 +100,40 @@ export default async function RecrutementPage() {
           <div className="hidden lg:block w-[1px] bg-neutral-100"></div>
           <div className="flex flex-col items-center mb-8 lg:mb-0">
             <ul className="w-full lg:w-fit grid grid-cols-2 gap-8 xl:gap-16 lg:mx-8">
-              {Array.from({ length: 5 }).map((x, i) => (
-                <li key={i} className="flex-col gap-2 flex items-center">
-                  <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
-                  <span className="font-semibold tracking-tight text-navy-900">
-                    Motivation
-                  </span>
-                </li>
-              ))}
+              <li className="flex-col gap-2 flex items-center">
+                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center overflow-hidden">
+                  <PeaceIcon className="w-8 fill-navy-900" />
+                </div>
+                <span className="font-semibold tracking-tight">Motivation</span>
+              </li>
+              <li className="flex-col gap-2 flex items-center">
+                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center overflow-hidden">
+                  <CalendarIcon className="w-7 fill-navy-900" />
+                </div>
+                <span className="font-semibold tracking-tight">
+                  Disponibilité
+                </span>
+              </li>
+              <li className="flex-col gap-2 flex items-center">
+                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center overflow-hidden">
+                  <BulbIcon className="w-9 fill-navy-900" />
+                </div>
+                <span className="font-semibold tracking-tight">
+                  Savoir-Faire
+                </span>
+              </li>
+              <li className="flex-col gap-2 flex items-center">
+                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center overflow-hidden">
+                  <LaptopIcon className="w-8 fill-navy-900" />
+                </div>
+                <span className="font-semibold tracking-tight">Ordinateur</span>
+              </li>
+              <li className="flex-col gap-2 flex items-center">
+                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center overflow-hidden">
+                  <MicrophoneIcon className="w-8 fill-navy-900" />
+                </div>
+                <span className="font-semibold tracking-tight">Microphone</span>
+              </li>
             </ul>
           </div>
         </div>

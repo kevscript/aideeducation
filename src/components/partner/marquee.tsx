@@ -2,14 +2,8 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-// immarqueeport {
-//   NextButton,
-//   PrevButton,
-//   usePrevNextButtons,
-// } from "./EmblaCarouselArrowButtons";
 
 type PartnerMarqueeProps = {
   partners: any[];

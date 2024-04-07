@@ -4,7 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useState } from "react";
 import { Button } from "../button";
-import { ContactFormSchema, ContactFormSchemaType, ContactForm } from "./types";
+import { ContactFormSchema, ContactFormSchemaType } from "./types";
+import type { ContactForm } from "./types";
 import Input from "./input";
 
 const ContactForm = () => {

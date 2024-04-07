@@ -29,7 +29,7 @@ export default async function EquipePage() {
         </div>
       </PageHeader>
 
-      <div className="wrapper mt-12 lg:mt-16 flex lg:justify-center">
+      <div className="relative mt-12 lg:mt-16">
         <DepartmentFilter />
       </div>
 

@@ -1,7 +1,8 @@
 import { getSocials } from "@/cms/api";
-import { Button } from "../button";
 import { DiscordIcon } from "../icons/discord";
 import { VideoBlob } from "./video-blob";
+import { isIcon } from "@/cms/typeguards";
+import { Button } from "@/components/button";
 
 export async function HeroSection() {
   const socials = await getSocials();
@@ -39,23 +40,29 @@ export async function HeroSection() {
               Devenir Bénévole
             </Button>
           </div>
-          <ul className="flex flex-nowrap gap-4 mt-12">
-            <a href="/">
-              <li className="flex justify-center items-center w-8 h-8 rounded-full bg-navy-700"></li>
-            </a>
-            <a href="/">
-              <li className="flex justify-center items-center w-8 h-8 rounded-full bg-navy-700"></li>
-            </a>
-            <a href="/">
-              <li className="flex justify-center items-center w-8 h-8 rounded-full bg-navy-700"></li>
-            </a>
-            <a href="/">
-              <li className="flex justify-center items-center w-8 h-8 rounded-full bg-navy-700"></li>
-            </a>
-            <a href="/">
-              <li className="flex justify-center items-center w-8 h-8 rounded-full bg-navy-700"></li>
-            </a>
-          </ul>
+          {socials && (
+            <ul className="flex gap-4 mt-12">
+              {socials.map((social) => (
+                <a
+                  key={social.id}
+                  className="relative w-10 h-10 bg-navy-700 rounded-full flex justify-center items-center overflow-hidden"
+                  href={social.link}
+                  title={social.name}
+                  target="_blank"
+                >
+                  {isIcon(social.icon) && (
+                    <div
+                      className="w-full h-full bg-white"
+                      style={{
+                        mask: `url(${social.icon.url}) no-repeat center`,
+                        WebkitMask: `url(${social.icon.url}) no-repeat center`,
+                      }}
+                    ></div>
+                  )}
+                </a>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>

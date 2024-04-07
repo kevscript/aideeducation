@@ -31,14 +31,14 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
   }, [emblaApi, onSliderSelect]);
 
   return (
-    <div className="flex flex-col gap-4 lg:hidden">
+    <div className="flex flex-col gap-4">
       <div className="overflow-hidden relative" ref={emblaRef}>
         <div className="flex wrapper gap-2">
           {valeurs.length &&
             valeurs.map((valeur, i) => (
               <li
                 key={valeur.id}
-                className="flex shrink-0 flex-col p-8 border bg-white border-neutral-100 max-w-96 w-full rounded-tr-[2rem] pb-16"
+                className="flex shrink-0 flex-col p-8 pb-16 lg:p-16 lg:pb-32 border bg-white border-neutral-100 max-w-96 w-full rounded-tr-[2rem]"
               >
                 <div className="w-16 h-16 rounded-full bg-neutral-50"></div>
                 <h5 className="text-2xl text-navy-900 mt-16 font-semibold tracking-tighter">
@@ -52,7 +52,7 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
         </div>
       </div>
 
-      <div className="px-4">
+      <div className="px-4 lg:hidden">
         <div className="wrapper flex flex-nowrap w-full justify-center items-center gap-4">
           <div className="relative flex flex-1">
             <div className="w-full h-[1px] bg-neutral-100"></div>

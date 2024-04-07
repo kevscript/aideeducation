@@ -15,10 +15,12 @@ export function VideoBlob() {
     setVideoStatus("open");
   }
 
-  function handleVideoClose() {
-    document.body.classList.remove("overflow-y-hidden");
-    document.documentElement.classList.remove("overflow-y-hidden");
-    setVideoStatus("close");
+  function handleVideoClose(e: React.MouseEvent<HTMLElement>) {
+    if (e.currentTarget === e.target) {
+      document.body.classList.remove("overflow-y-hidden");
+      document.documentElement.classList.remove("overflow-y-hidden");
+      setVideoStatus("close");
+    }
   }
 
   return (
@@ -31,15 +33,18 @@ export function VideoBlob() {
       </div>
 
       {videoStatus === "open" && (
-        <div className="fixed z-50 inset-0 bg-gradient-to-b from-navy-700 to-navy-900 flex justify-center items-center p-8">
+        <div
+          className="fixed z-50 inset-0 bg-gradient-to-b from-navy-700 to-navy-900 flex justify-center items-center p-8"
+          onClick={handleVideoClose}
+        >
           <div
-            className="absolute top-8 right-8 flex justify-center items-center z-50 cursor-pointer"
+            className="absolute top-8 right-8 flex justify-center items-center z-[60] cursor-pointer"
             onClick={handleVideoClose}
           >
-            <ExitIcon className="w-8 h-8 fill-white" />
+            <ExitIcon className="w-8 h-8 fill-white pointer-events-none" />
           </div>
 
-          <div className="w-full aspect-video max-w-[64rem]">
+          <div className="w-full aspect-video max-w-[64rem] overflow-hidden rounded shadow-2xl">
             <video
               ref={videoRef}
               className="w-full h-auto bg-navy-900"
