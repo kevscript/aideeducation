@@ -1,4 +1,5 @@
 import { getAssociation } from "@/cms/api";
+import { AssociationTimeline } from "@/components/association/timeline";
 import { PageHeader } from "@/components/page-header";
 import Link from "next/link";
 
@@ -8,7 +9,7 @@ export default async function AssociationPage() {
   return (
     <main className="pb-24">
       <PageHeader>
-        <div className="wrapper">
+        <div className="wrapper mb-8 lg:mb-16">
           <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between lg:w-full lg:items-end gap-8 xl:gap-16">
             <div className="flex flex-col gap-4 flex-1">
               <h3 className="up-title-light">Association</h3>
@@ -28,7 +29,13 @@ export default async function AssociationPage() {
         </div>
       </PageHeader>
 
-      <div className="wrapper mt-16">
+      {association.events && (
+        <div className="relative -translate-y-8">
+          <AssociationTimeline events={association.events} />
+        </div>
+      )}
+
+      <div className="wrapper mt-0 lg:mt-16">
         <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between w-full gap-8 xl:gap-16 h-fit">
           <div className="flex-1">
             <div className="flex flex-col gap-4">
