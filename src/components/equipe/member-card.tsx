@@ -26,9 +26,9 @@ export function MemberCard({ member }: MemberCardProps) {
             <UserIcon className="w-full h-full fill-neutral-200 translate-y-4" />
           )}
         </div>
-        <ul className="absolute bottom-0 left-0 flex gap-0.5 justify-center items-center w-full translate-y-0..5">
+        <ul className="absolute bottom-0 left-0 flex gap-0.5 justify-center items-center w-full lg:translate-y-0..5">
           {Array.from({ length: Number(member.rank) }).map((_, i) => (
-            <StarIcon key={i} className="w-3 h-3 fill-navy-700" />
+            <StarIcon key={i} className="w-2 h-2 lg:w-3 lg:h-3 fill-navy-700" />
           ))}
         </ul>
       </div>
@@ -39,7 +39,7 @@ export function MemberCard({ member }: MemberCardProps) {
         <span className="tracking-tighter text-sm lg:text-base lg:text-center lg:text-balance">
           {member.role}
         </span>
-        <span className="hidden lg:inline text-sm font-mono mt-4 tracking-tighter text-neutral-500">
+        <span className="text-xs lg:text-sm font-mono mt-2 lg:mt-4 tracking-tighter text-neutral-500">
           {new Date(member.joinedAt).toLocaleDateString("fr-FR")}
         </span>
       </div>
