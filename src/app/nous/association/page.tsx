@@ -1,4 +1,5 @@
 import { getAssociation } from "@/cms/api";
+import { DiscoverMembers } from "@/components/association/discover-members";
 import { AssociationTimeline } from "@/components/association/timeline";
 import { PageHeader } from "@/components/page-header";
 import Link from "next/link";
@@ -47,18 +48,7 @@ export default async function AssociationPage() {
 
           <div className="hidden lg:block w-[1px] bg-neutral-100"></div>
 
-          <Link
-            href={"/nous/equipe"}
-            className="max-w-96 w-full bg-white hover:bg-neutral-50 cursor-pointer card-shadow rounded-tr-2xl rounded-bl-2xl p-8 gap-4 flex flex-col h-fit"
-          >
-            <div className="relative flex flex-nowrap">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-bl from-navy-700 to-navy-900 border-2 border-white"></div>
-              <div className="absolute top-0 left-[40px] w-16 h-16 rounded-full bg-gradient-to-bl from-navy-700 to-navy-900 border-2 border-white"></div>
-              <div className="absolute top-0 left-[80px] w-16 h-16 rounded-full bg-gradient-to-bl from-navy-700 to-navy-900 border-2 border-white"></div>
-            </div>
-
-            <p className="shrink-0">Découvrez nos bénévoles.</p>
-          </Link>
+          <DiscoverMembers />
         </div>
       </div>
     </main>
