@@ -24,7 +24,7 @@ export async function HeroSection() {
           <div className="flex flex-col w-full gap-4 mt-8 lg:mt-12 lg:flex-row">
             <Button
               theme="dark"
-              as="anchor"
+              is="anchor"
               href={discord?.link || "/"}
               startIcon={<DiscordIcon className="w-5 h-5 fill-navy-900" />}
             >
@@ -33,7 +33,7 @@ export async function HeroSection() {
 
             <Button
               theme="dark"
-              as="link"
+              is="link"
               href="/soutenir/recrutement"
               variant="secondary"
             >

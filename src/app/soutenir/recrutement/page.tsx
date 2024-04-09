@@ -86,12 +86,12 @@ export default async function RecrutementPage() {
               <div className="flex flex-wrap gap-4 mt-8">
                 <Button
                   startIcon={<DiscordIcon className="w-5 h-5 fill-white" />}
-                  as="anchor"
+                  is="anchor"
                   href={discord?.link || "/"}
                 >
                   Rejoindre Discord
                 </Button>
-                <Button variant="secondary" as="link" href="/contact">
+                <Button variant="secondary" is="link" href="/contact">
                   Contactez-nous
                 </Button>
               </div>

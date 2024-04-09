@@ -66,7 +66,7 @@ export default async function DonPage() {
           <div className="flex-1 flex flex-col items-start">
             <div className="flex flex-col gap-8 lg:max-w-[24rem] lg:items-start">
               <Button
-                as="anchor"
+                is="anchor"
                 href={don.helloAssoUrl || "/"}
                 className="tracking-normal"
               >
@@ -80,7 +80,7 @@ export default async function DonPage() {
               </p>
               <div className="flex flex-wrap w-full gap-4 lg:items-start">
                 <Button
-                  as="anchor"
+                  is="anchor"
                   href={discord?.link || "/"}
                   startIcon={
                     <DiscordIcon className="w-5 h-5 fill-navy-900 group-hover:fill-white" />
@@ -89,7 +89,7 @@ export default async function DonPage() {
                 >
                   Rejoindre Discord
                 </Button>
-                <Button variant="secondary" as="link" href="/contact">
+                <Button variant="secondary" is="link" href="/contact">
                   Contactez-nous
                 </Button>
               </div>

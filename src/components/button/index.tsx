@@ -9,17 +9,17 @@ type ButtonBaseProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 type ButtonAsAnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  as: "anchor";
+  is: "anchor";
 };
 
 type ButtonAsLinkProps = LinkProps &
   HTMLProps<HTMLAnchorElement> & {
-    as: "link";
+    is: "link";
     href: string;
   };
 
 type ButtonAsButtonProps = {
-  as?: "button";
+  is?: "button";
 };
 
 export type ButtonProps = ButtonBaseProps &
@@ -49,7 +49,7 @@ export function Button({
     variant === "secondary" ? secondaryStyles : primaryStyles
   } ${className}`;
 
-  if (props.as === "anchor") {
+  if (props.is === "anchor") {
     return (
       <a target="_blank" className={activeStyles} {...props}>
         <div className="w-full h-full flex justify-center items-center gap-4">
@@ -61,7 +61,7 @@ export function Button({
     );
   }
 
-  if (props.as === "link") {
+  if (props.is === "link") {
     return (
       <Link className={activeStyles} {...props}>
         <div className="w-full h-full flex justify-center items-center  gap-4">
