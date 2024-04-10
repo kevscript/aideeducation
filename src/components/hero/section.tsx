@@ -3,16 +3,16 @@ import { DiscordIcon } from "../icons/discord";
 import { VideoBlob } from "./video-blob";
 import { isIcon } from "@/cms/typeguards";
 import { Button } from "@/components/button";
+import { TriangleSVG } from "../triangle";
 
 export async function HeroSection() {
   const socials = await getSocials();
   const discord = socials.find((s) => s.name.toLowerCase() === "discord");
 
   return (
-    <section className="relative lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 py-16 md:py-24 lg:flex justify-center">
+    <section className="relative overflow-hidden lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 py-16 md:py-24 lg:flex justify-center">
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
         <VideoBlob />
-
         <div className="px-4 md:px-0 w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
           <h1 className="text-5xl lg:text-[4rem] font-bold tracking-tighter">
             AideEducation

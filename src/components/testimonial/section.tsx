@@ -2,6 +2,7 @@ import { getTestimonials } from "@/cms/api";
 import { TestimonialCarousel } from "./carousel";
 import { TestimonialDuo } from "./duo";
 import { TestimonialSlider } from "./slider";
+import { TriangleSVG } from "../triangle";
 
 const testimonials = [
   {
@@ -42,7 +43,18 @@ export async function TestimonialSection() {
   const testimonials = await getTestimonials();
 
   return (
-    <section className="w-full relative py-16 md:py-24 lg:pb-0 bg-gradient-to-b from-navy-900 to-navy-700">
+    <section className="w-full relative py-16 md:py-24 lg:pb-0 bg-gradient-to-b from-navy-900 to-navy-700 z-0 overflow-hidden">
+      <TriangleSVG
+        className="absolute -top-[80%] -left-[10%] lg:top-[70%] lg:-left-[20%] -z-20 stroke-navy-900 rotate-45 w-1/2"
+        variant="outline"
+      />
+      <TriangleSVG
+        className="absolute -bottom-[60%] -right-[25%] lg:bottom-[60%] lg:-right-[20%] -z-10 stroke-navy-900 rotate-90 w-1/2"
+        variant="outline"
+      />
+
+      <TriangleSVG className="absolute bottom-[75%] left-[3%] -z-10 fill-navy-700 w-3 lg:w-8 h-auto rotate-[105deg]" />
+      <div className="absolute w-3 lg:w-8 aspect-square rounded-full bg-navy-700 -z-10 right-[4%] lg:top-[40%]"></div>
       <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
       <div className="wrapper">
         <div className="flex flex-col justify-center md:items-center md:text-center w-full">

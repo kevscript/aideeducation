@@ -2,7 +2,6 @@ import { getAssociation } from "@/cms/api";
 import { DiscoverMembers } from "@/components/association/discover-members";
 import { AssociationTimeline } from "@/components/association/timeline";
 import { PageHeader } from "@/components/page-header";
-import Link from "next/link";
 
 export default async function AssociationPage() {
   const association = await getAssociation();

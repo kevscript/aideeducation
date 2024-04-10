@@ -1,11 +1,12 @@
 import { getOrientations } from "@/cms/api";
+import { PageHeader } from "@/components/page-header";
 
 export default async function OrientationPage() {
   const orientations = await getOrientations();
 
   return (
     <main className="pb-24">
-      <div className="w-full bg-gradient-to-b lg:bg-gradient-to-r from-navy-900 to-navy-700 pt-24 lg:pt-40 pb-16 border-b-4 border-navy-700">
+      <PageHeader>
         <div className="wrapper">
           <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between lg:w-full lg:items-end gap-8 xl:gap-16">
             <div className="flex flex-col gap-4 flex-1">
@@ -22,7 +23,7 @@ export default async function OrientationPage() {
             </div>
           </div>
         </div>
-      </div>
+      </PageHeader>
 
       <div className="wrapper mt-12 lg:mt-16">
         <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
