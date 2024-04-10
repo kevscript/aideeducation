@@ -4,7 +4,7 @@ import { ChevronIcon } from "../icons/chevron";
 import Image from "next/image";
 import { TutorialAccordeon } from "./accordeon";
 import { useMemo, useState } from "react";
-import { Tutorial } from "./types";
+import type { Tutorial } from "./types";
 
 type TutorialProps = {
   tutorial: Tutorial;
