@@ -53,8 +53,8 @@ export function StatisticList({ statistics }: StatisticListProps) {
                   <span className="font-mono">
                     {statistics[i].prefix && (
                       <span>{statistics[i].prefix}</span>
-                    )}{" "}
-                    {statistics[i].title}{" "}
+                    )}
+                    {statistics[i].title}
                     {statistics[i].suffix && (
                       <span>{statistics[i].suffix}</span>
                     )}
