@@ -59,8 +59,8 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
                 key={t.id}
                 className="w-full  overflow-hidden shrink-0 flex flex-col bg-navy-900/80 backdrop-blur p-8 rounded-tr-2xl border border-navy-700 max-w-96"
               >
-                {/* <h5 className="font-semibold text-white">{t.title}</h5> */}
-                {/* <div className="w-full h-[1px] bg-navy-700 my-6"></div> */}
+                <h5 className="font-semibold text-white">{t.title}</h5>
+                <div className="w-full h-[1px] bg-navy-700 my-6"></div>
                 <p className="text-neutral-100 leading-[1.75]">
                   {'"' + t.comment + '"'}
                 </p>
