@@ -45,7 +45,7 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
                 <div className="w-16 h-16 rounded-full bg-neutral-50 flex justify-center items-center">
                   {isIcon(valeur.icon) ? (
                     <div
-                      className="w-8 h-8 bg-navy-900"
+                      className="w-12 h-12 bg-navy-900"
                       style={{
                         mask: `url(${valeur.icon.url}) no-repeat center`,
                         WebkitMask: `url(${valeur.icon.url}) no-repeat center`,
