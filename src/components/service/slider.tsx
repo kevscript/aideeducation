@@ -2,9 +2,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import Image from "next/image";
+import { Service } from "@/cms/types";
+import { isImage } from "@/cms/typeguards";
 
 type ServiceSliderProps = {
-  services: any[];
+  services: Service[];
 };
 
 export function ServiceSlider({ services }: ServiceSliderProps) {
@@ -41,12 +43,14 @@ export function ServiceSlider({ services }: ServiceSliderProps) {
             >
               <div className="px-4 pb-8 pt-64 relative z-0 h-full flex items-end rounded-tr-2xl rounded-bl-2xl overflow-hidden">
                 <div className="absolute inset-0 -z-20">
-                  <Image
-                    src={service.imgUrl}
-                    className="object-cover"
-                    fill
-                    alt="service"
-                  />
+                  {isImage(service.image) && (
+                    <Image
+                      src={service.image.url!}
+                      className="object-cover"
+                      fill
+                      alt={service.image.alt}
+                    />
+                  )}
                 </div>
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-700/20 to-navy-900"></div>
                 <div className="w-full flex flex-col gap-2">

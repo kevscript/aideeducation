@@ -1,10 +1,12 @@
 "use client";
 
+import { isImage } from "@/cms/typeguards";
+import { Service } from "@/cms/types";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type ServiceCatalogueProps = {
-  services: any[];
+  services: Service[];
 };
 
 export function ServiceCatalogue({ services }: ServiceCatalogueProps) {
@@ -98,13 +100,14 @@ export function ServiceCatalogue({ services }: ServiceCatalogueProps) {
                   : "opacity-0 translate-x-4 scale-110"
               } [transition:transform_11s_linear,opacity_.5s_linear]`}
             >
-              <Image
-                src={service.imgUrl}
-                className="object-cover"
-                fill
-                alt="service"
-                priority={true}
-              />
+              {isImage(service.image) && (
+                <Image
+                  src={service.image.url!}
+                  className="object-cover"
+                  fill
+                  alt={service.image.alt}
+                />
+              )}
             </div>
           ))}
         <div className="absolute inset-0 -z-10 bg-gradient-to-bl from-navy-700/20 to-navy-900/40"></div>

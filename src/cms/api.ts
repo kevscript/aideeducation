@@ -8,11 +8,17 @@ import {
   Member,
   Orientation,
   Partner,
+  Service,
   Social,
   Statistic,
   TeamValue,
   Testimonial,
 } from "./types";
+
+export const getServices = async () => {
+  const services = await getCollection<Service>("services");
+  return services;
+};
 
 export const getFaqs = async () => {
   const faqs = await getCollection<Faq>("faqs");

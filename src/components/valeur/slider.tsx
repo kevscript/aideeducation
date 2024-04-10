@@ -2,6 +2,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import { TeamValue } from "@/cms/types";
+import { isIcon } from "@/cms/typeguards";
+import { LogoIcon } from "../icons/logo";
 
 type ValeurSliderProps = {
   valeurs: TeamValue[];
@@ -40,7 +42,19 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
                 key={valeur.id}
                 className="flex shrink-0 flex-col p-8 pb-16 lg:p-16 lg:pb-32 border bg-white border-neutral-100 max-w-96 w-full rounded-tr-[2rem]"
               >
-                <div className="w-16 h-16 rounded-full bg-neutral-50"></div>
+                <div className="w-16 h-16 rounded-full bg-neutral-50 flex justify-center items-center">
+                  {isIcon(valeur.icon) ? (
+                    <div
+                      className="w-8 h-8 bg-navy-900"
+                      style={{
+                        mask: `url(${valeur.icon.url}) no-repeat center`,
+                        WebkitMask: `url(${valeur.icon.url}) no-repeat center`,
+                      }}
+                    ></div>
+                  ) : (
+                    <LogoIcon className="w-8 h-8 fill-navy-900" />
+                  )}
+                </div>
                 <h5 className="text-2xl text-navy-900 mt-16 font-semibold tracking-tighter">
                   {valeur.title}
                 </h5>

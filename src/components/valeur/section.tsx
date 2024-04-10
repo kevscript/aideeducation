@@ -1,52 +1,5 @@
 import { getValeurs } from "@/cms/api";
-import { PageTitle } from "../page-title";
-import { ValeurList } from "./list";
 import { ValeurSlider } from "./slider";
-
-// const valeurs = [
-//   {
-//     id: "1",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-//   {
-//     id: "2",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-//   {
-//     id: "3",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-//   {
-//     id: "4",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-//   {
-//     id: "5",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-//   {
-//     id: "6",
-//     title: "Transmission",
-//     description:
-//       "Parce que nous souhaitons contribuer au partage des connaissances, chaque bénévole d’AideEducation s'engage à en assurer la transmission.",
-//     iconUrl: undefined,
-//   },
-// ];
 
 export async function ValeurSection() {
   const valeurs = await getValeurs();
@@ -70,7 +23,6 @@ export async function ValeurSection() {
       </div>
 
       <ValeurSlider valeurs={valeurs} />
-      {/* <ValeurList valeurs={valeurs} /> */}
     </section>
   );
 }

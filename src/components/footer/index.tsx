@@ -40,8 +40,8 @@ export async function Footer() {
                     </a>
                   ))}
                 </ul>
-              )}
-
+              )}{" "}
+              {/* <ValeurList valeurs={valeurs} /> */}
               <div className="">
                 <p className="text-balance max-w-96">
                   Maison des Associations, 1018 quartier du Grand Parc - 14200

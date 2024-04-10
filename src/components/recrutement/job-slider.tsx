@@ -2,6 +2,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import { Job } from "@/cms/types";
+import { isIcon } from "@/cms/typeguards";
+import { LogoIcon } from "../icons/logo";
 
 type JobSliderProps = {
   jobs: Job[];
@@ -39,7 +41,19 @@ export function JobSlider({ jobs }: JobSliderProps) {
               key={job.id}
               className="card min-w-0 w-full flex-shrink-0 max-w-96 rounded-tr-3xl p-6 flex flex-col gap-8"
             >
-              <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
+              <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center">
+                {isIcon(job.icon) ? (
+                  <div
+                    className="w-8 h-8 bg-navy-900"
+                    style={{
+                      mask: `url(${job.icon.url}) no-repeat center`,
+                      WebkitMask: `url(${job.icon.url}) no-repeat center`,
+                    }}
+                  ></div>
+                ) : (
+                  <LogoIcon className="w-8 h-8 fill-navy-900" />
+                )}
+              </div>
 
               <div className="flex flex-col gap-4">
                 <h5 className="text-xl font-semibold tracking-tighter text-navy-900">

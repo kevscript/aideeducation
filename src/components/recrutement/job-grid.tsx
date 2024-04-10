@@ -1,3 +1,6 @@
+import { isIcon } from "@/cms/typeguards";
+import { LogoIcon } from "../icons/logo";
+
 type JobGridProps = {
   jobs: any[];
 };
@@ -12,7 +15,19 @@ export function JobGrid({ jobs }: JobGridProps) {
             className="card p-8 transition-all hover:rounded-tr-3xl flex flex-col justify-between gap-8"
           >
             <div className="flex flex-col">
-              <div className="w-16 h-16 rounded-full bg-neutral-100"></div>
+              <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center">
+                {isIcon(job.icon) ? (
+                  <div
+                    className="w-8 h-8 bg-navy-900"
+                    style={{
+                      mask: `url(${job.icon.url}) no-repeat center`,
+                      WebkitMask: `url(${job.icon.url}) no-repeat center`,
+                    }}
+                  ></div>
+                ) : (
+                  <LogoIcon className="w-8 h-8 fill-navy-900" />
+                )}
+              </div>
               <h5 className="text-navy-900 text-xl font-semibold tracking-tight mt-8">
                 {job.role}
               </h5>
