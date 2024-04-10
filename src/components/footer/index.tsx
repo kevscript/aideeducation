@@ -73,7 +73,7 @@ export async function Footer() {
                   Soutenir
                 </span>
                 <ul className="flex flex-col gap-2">
-                  <Link href="/soutenir/association">Recrutement</Link>
+                  <Link href="/soutenir/recrutement">Recrutement</Link>
                   <Link href="/soutenir/don">Faire un don</Link>
                   <Link href="/soutenir/partenaires">Partenaires</Link>
                 </ul>
