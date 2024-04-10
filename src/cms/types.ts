@@ -56,7 +56,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
-  imgUrl: string | Image;
+  image: string | Image;
   order: number;
   published: boolean;
   updatedAt: string;
