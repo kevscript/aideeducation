@@ -65,9 +65,10 @@ export default async function RecrutementPage() {
               <p className="leading-[1.75] max-w-prose">
                 Une présentation rapide de vous-même (vos informations
                 personnelles telles que votre adresse ou encore votre numéro de
-                téléphone ne nous sont pas utiles). Le ou les poste souhaité(s),
-                votre expérience, compétences, disponibilités et vos motivations
-                doivent être énoncés clairement dans la candidature.
+                téléphone ne nous sont pas utiles). Le ou les poste(s)
+                souhaité(s), votre expérience, compétences, disponibilités et
+                vos motivations doivent être énoncés clairement dans la
+                candidature.
               </p>
               <p className="leading-[1.75] max-w-prose">
                 Plus la candidature est complète plus elle est valorisante,
