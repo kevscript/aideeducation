@@ -13,6 +13,7 @@ import {
   Statistic,
   TeamValue,
   Testimonial,
+  Tutorial,
 } from "./types";
 
 export const getServices = async () => {
@@ -73,4 +74,9 @@ export const getDon = async () => {
 export const getSocials = async () => {
   const socials = await getCollection<Social>("socials");
   return socials;
+};
+
+export const getTutorials = async () => {
+  const tutorials = await getCollection<Tutorial>("tutorials");
+  return tutorials;
 };

@@ -1,8 +1,9 @@
+import { getTutorials } from "@/cms/api";
 import { PageHeader } from "@/components/page-header";
 import { Tutorial } from "@/components/tutorial";
-import { tutorials } from "@/components/tutorial/constants";
 
-export default function TutorielPage() {
+export default async function TutorielPage() {
+  const tutorials = await getTutorials();
   return (
     <main className="pb-24">
       <PageHeader>

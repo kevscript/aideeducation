@@ -2,14 +2,36 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      { hostname: "source.unsplash.com" },
-      { hostname: "http://localhost" },
-      { hostname: "http://localhost:3000" },
-      { hostname: "http://localhost:4000" },
-      { hostname: "cms.kevinostafinski.com" },
-      { hostname: "kevinostafinski.com" },
-      { hostname: "cms.aideeducation.fr" },
-      { hostname: "aideeducation.fr" },
+      {
+        protocol: "https",
+        hostname: "source.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cms.kevinostafinski.com",
+      },
+      {
+        protocol: "https",
+        hostname: "kevinostafinski.com",
+      },
+      {
+        protocol: "https",
+        hostname: "aideeducation.fr",
+      },
+      {
+        protocol: "https",
+        hostname: "cms.aideeducation.fr",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "4000",
+      },
     ],
   },
 };

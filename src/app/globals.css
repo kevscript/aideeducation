@@ -48,6 +48,18 @@
   }
 }
 
+.tutorial .description {
+  @apply text-neutral-500;
+}
+
+.tutorial .description .bullet {
+  @apply list-inside list-disc flex flex-col gap-4;
+}
+
+.tutorial .description .bullet a {
+  @apply text-navy-900 font-semibold tracking-tight underline;
+}
+
 .infinite-scroll {
   animation: infinite-scroll 30s linear infinite;
 }

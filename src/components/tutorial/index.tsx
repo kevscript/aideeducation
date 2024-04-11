@@ -2,16 +2,17 @@
 
 import { ChevronIcon } from "../icons/chevron";
 import Image from "next/image";
+import type { Tutorial } from "@/cms/types";
 import { TutorialAccordeon } from "./accordeon";
 import { useMemo, useState } from "react";
-import type { Tutorial } from "./types";
+import { isImage } from "@/cms/typeguards";
 
 type TutorialProps = {
   tutorial: Tutorial;
 };
 
 export function Tutorial({ tutorial }: TutorialProps) {
-  const [activeStep, setActivStep] = useState<(typeof tutorial)["steps"][0]>(
+  const [activeStep, setActivStep] = useState<Tutorial["steps"][0]>(
     () => tutorial.steps[0]
   );
 
@@ -42,14 +43,16 @@ export function Tutorial({ tutorial }: TutorialProps) {
   return (
     <div className="w-full p-8 xl:p-16 bg-neutral-50 rounded-lg flex flex-col lg:flex-row gap-8 xl:gap-16">
       <div className="w-96 max-w-full relative bg-neutral-300 h-fit shadow-sm rounded-2xl lg:rounded-3xl overflow-hidden">
-        <Image
-          src={activeStep.imgUrl}
-          width={0}
-          height={0}
-          alt="tutorial"
-          className="w-full h-auto"
-          unoptimized
-        />
+        {isImage(activeStep.image) && (
+          <Image
+            src={activeStep.image.url!}
+            width={0}
+            height={0}
+            alt="tutorial"
+            className="w-full h-auto"
+            unoptimized
+          />
+        )}
       </div>
 
       <div className="flex-1 flex w-full flex-col">
@@ -62,8 +65,8 @@ export function Tutorial({ tutorial }: TutorialProps) {
             <span className="font-mono tracking-tighter">
               Etape{" "}
               <span className="text-navy-900">
-                {String(activeStepIndex + 1).padStart(2, "0")}/
-                {String(tutorial.steps.length).padStart(2, "0")}
+                {String(activeStepIndex! + 1).padStart(2, "0")}/
+                {String(tutorial.steps!.length).padStart(2, "0")}
               </span>
             </span>
             <div className="relative w-full">
@@ -72,7 +75,7 @@ export function Tutorial({ tutorial }: TutorialProps) {
                 className="transition-all duration-1000 ease-out absolute top-0 left-0 h-0.5 bg-navy-900"
                 style={{
                   width: `${Math.round(
-                    (100 / tutorial.steps.length) * (activeStepIndex + 1)
+                    (100 / tutorial.steps!.length) * (activeStepIndex! + 1)
                   )}%`,
                 }}
               ></div>
@@ -112,7 +115,7 @@ export function Tutorial({ tutorial }: TutorialProps) {
         <TutorialAccordeon
           handleActiveStep={handleActiveStep}
           steps={tutorial.steps}
-          activeStepId={activeStep.id}
+          activeStepId={activeStep.id || null}
         />
       </div>
     </div>
