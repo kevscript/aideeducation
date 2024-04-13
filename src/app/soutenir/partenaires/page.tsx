@@ -35,7 +35,7 @@ export default async function PartnerPage() {
             partners.map((partner, i) => (
               <li key={i} className="w-full card p-8 flex flex-col gap-8">
                 {isLogo(partner.logo) ? (
-                  <div className="relative max-h-16 w-fit flex justify-center items-center">
+                  <div className="relative h-16 w-fit flex justify-center items-center">
                     <Image
                       className="h-full w-auto"
                       src={partner.logo.url!}

@@ -34,7 +34,7 @@ export default async function OrientationPage() {
             orientations.map((o, i) => (
               <li key={i} className="w-full card p-8 flex flex-col gap-8">
                 {isLogo(o.logo) ? (
-                  <div className="relative max-h-16 w-fit flex justify-center items-center">
+                  <div className="relative h-16 w-fit flex justify-center items-center">
                     <Image
                       className="h-full w-auto"
                       src={o.logo.url!}
