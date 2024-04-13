@@ -2,6 +2,7 @@ import { getPartners } from "@/cms/api";
 import { isLogo } from "@/cms/typeguards";
 import { LogoIcon } from "@/components/icons/logo";
 import { PageHeader } from "@/components/page-header";
+import Image from "next/image";
 
 export default async function PartnerPage() {
   const partners = await getPartners();
@@ -33,19 +34,22 @@ export default async function PartnerPage() {
           {partners.length &&
             partners.map((partner, i) => (
               <li key={i} className="w-full card p-8 flex flex-col gap-8">
-                <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center">
-                  {isLogo(partner.logo) ? (
-                    <div
-                      className="w-8 h-8 bg-navy-900"
-                      style={{
-                        mask: `url(${partner.logo.url}) no-repeat center`,
-                        WebkitMask: `url(${partner.logo.url}) no-repeat center`,
-                      }}
-                    ></div>
-                  ) : (
+                {isLogo(partner.logo) ? (
+                  <div className="relative max-h-16 w-fit flex justify-center items-center">
+                    <Image
+                      className="h-full w-auto"
+                      src={partner.logo.url!}
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      alt={partner.logo.alt}
+                    />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 rounded-full bg-neutral-100 flex justify-center items-center">
                     <LogoIcon className="w-8 h-8 fill-navy-900" />
-                  )}
-                </div>
+                  </div>
+                )}
 
                 <div className="flex flex-col gap-4">
                   <h5 className="text-2xl font-semibold tracking-tighter text-navy-900">
