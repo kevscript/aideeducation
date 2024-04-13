@@ -44,15 +44,15 @@ export function VideoBlob() {
             <ExitIcon className="w-8 h-8 fill-white pointer-events-none" />
           </div>
 
-          <div className="w-full aspect-video max-w-[64rem] overflow-hidden rounded shadow-2xl">
-            <video
-              ref={videoRef}
-              className="w-full h-auto bg-navy-900"
-              controls
-            >
-              <source src="/presentation.mp4" />
-            </video>
-          </div>
+          <iframe
+            className="w-3/4 aspect-video"
+            src="https://www.youtube.com/embed/7bn_3k4FPvI?si=b532rylpv04rD_rb"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
       )}
     </>
