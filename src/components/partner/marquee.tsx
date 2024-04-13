@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
+import { Partner } from "@/cms/types";
+import { isLogo } from "@/cms/typeguards";
 
 type PartnerMarqueeProps = {
-  partners: any[];
+  partners: Partner[];
 };
 
 export function PartnerMarquee({ partners }: PartnerMarqueeProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
     AutoScroll({
       playOnInit: true,
       speed: 0.5,
@@ -20,7 +21,7 @@ export function PartnerMarquee({ partners }: PartnerMarqueeProps) {
     }),
   ]);
 
-  const repeatedPartners = Array(16).fill(partners).flat(1);
+  const repeatedPartners: Partner[] = Array(16).fill(partners).flat(1);
 
   return (
     <div className="relative overflow-hidden">
@@ -36,14 +37,16 @@ export function PartnerMarquee({ partners }: PartnerMarqueeProps) {
                 key={i}
                 className="relative min-w-0 mr-8 lg:mr-16 h-16 lg:h-24 flex-shrink-0 flex justify-center items-center"
               >
-                <Image
-                  src={p.logoUrl}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="object-contain h-full max-h-12 w-auto max-w-24 lg:max-w-32 lg:max-h-16 grayscale opacity-40"
-                  alt={`${p.name} logo`}
-                />
+                {isLogo(p.logo) && (
+                  <Image
+                    className="object-contain h-full max-h-12 w-auto max-w-24 lg:max-w-32 lg:max-h-16 grayscale opacity-40"
+                    src={p.logo.url!}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    alt={p.logo.alt}
+                  />
+                )}
               </div>
             ))}
         </div>
