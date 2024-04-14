@@ -3,6 +3,11 @@ import { ValeurSlider } from "./slider";
 
 export async function ValeurSection() {
   const valeurs = await getValeurs();
+
+  if (!valeurs || valeurs.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative w-full py-16 md:py-24 bg-gradient-to-b lg:bg-transparent from-transparent to-neutral-50">
       <div className="wrapper mb-8 lg:mb-16">

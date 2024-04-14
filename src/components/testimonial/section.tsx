@@ -1,46 +1,14 @@
 import { getTestimonials } from "@/cms/api";
-import { TestimonialCarousel } from "./carousel";
 import { TestimonialDuo } from "./duo";
 import { TestimonialSlider } from "./slider";
 import { TriangleSVG } from "../triangle";
 
-const testimonials = [
-  {
-    id: "1",
-    title: "Une aide exceptionnelle.",
-    name: "John Snow",
-    date: "01/10/21",
-    comment: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-  },
-  {
-    id: "2",
-    title: "Une aide exceptionnelle.",
-
-    name: "John Snow",
-    date: "01/10/21",
-    comment:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti voluptas suscipit harum aliquam assumenda ea beatae optio nisi, temporibus quasi incidunt. Sunt obcaecati illo eius itaque cum, alias excepturi libero? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora quae vitae, impedit vel sequi modi excepturi sed mollitia dignissimos consequatur similique expedita consectetur doloremque minima voluptatem ex reprehenderit, dolorum velit.",
-  },
-  {
-    id: "3",
-    title: "Une aide exceptionnelle.",
-    name: "John Snow",
-    date: "01/10/21",
-    comment:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti voluptas suscipit harum aliquam assumenda ea beatae optio nisi, temporibus quasi incidunt. Sunt obcaecati illo eius itaque cum, alias excepturi libero?",
-  },
-  {
-    id: "4",
-    title: "Une aide exceptionnelle.",
-    name: "John Snow",
-    date: "01/10/21",
-    comment:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti voluptas suscipit harum aliquam assumenda ea beatae optio nisi, temporibus quasi incidunt. Sunt obcaecati illo eius itaque cum, alias excepturi libero? Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-  },
-];
-
 export async function TestimonialSection() {
   const testimonials = await getTestimonials();
+
+  if (!testimonials || testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <section className="w-full relative py-16 md:py-24 lg:pb-0 bg-gradient-to-b from-navy-900 to-navy-700 z-0 overflow-hidden">

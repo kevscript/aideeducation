@@ -5,6 +5,10 @@ import { ServiceSlider } from "./slider";
 export async function ServiceSection() {
   const services = await getServices();
 
+  if (!services || services.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative w-full md:py-24 py-16">
       <div className="wrapper mb-8 lg:mb-24">
