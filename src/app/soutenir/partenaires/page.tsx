@@ -30,9 +30,23 @@ export default async function PartnerPage() {
       </PageHeader>
 
       <div className="wrapper mt-12 lg:mt-16">
-        <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
-          {partners.length &&
-            partners.map((partner, i) => (
+        {!partners && (
+          <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16 mt-12 lg:mt-16">
+            <LogoIcon className="fill-neutral-200 w-16 h-16" />
+            <p>Cette page rencontre quelques soucis actuellement :(</p>
+          </div>
+        )}
+
+        {partners && partners.length === 0 && (
+          <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16 mt-12 lg:mt-16">
+            <LogoIcon className="fill-neutral-200 w-16 h-16" />
+            <p>Pas de partenaire actuellement. Soyez le premier!</p>
+          </div>
+        )}
+
+        {partners && partners.length && (
+          <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
+            {partners.map((partner, i) => (
               <li key={i} className="w-full card p-8 flex flex-col gap-8">
                 {isLogo(partner.logo) ? (
                   <div className="relative h-16 w-fit flex justify-center items-center">
@@ -83,7 +97,8 @@ export default async function PartnerPage() {
                 )}
               </li>
             ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </main>
   );

@@ -1,6 +1,7 @@
 import { getAssociation } from "@/cms/api";
 import { DiscoverMembers } from "@/components/association/discover-members";
 import { AssociationTimeline } from "@/components/association/timeline";
+import { LogoIcon } from "@/components/icons/logo";
 import { PageHeader } from "@/components/page-header";
 
 export default async function AssociationPage() {
@@ -17,39 +18,40 @@ export default async function AssociationPage() {
                 Qu&apos;est-ce qu&apos;AideEducation?
               </h5>
             </div>
-            {/* <div className="hidden lg:block w-[1px]"></div>
-            <div className="flex-1 flex flex-col">
-              <p className="text-white leading-[1.75] lg:max-w-[32rem] ">
-                Notre association est fière de compter sur une équipe dévouée de
-                bénévoles passionnés, prêts à partager leurs connaissances et
-                leur expérience pour soutenir notre mission.
-              </p>
-            </div> */}
           </div>
         </div>
       </PageHeader>
 
-      {association.events && (
-        <div className="relative -translate-y-8">
-          <AssociationTimeline events={association.events} />
-        </div>
-      )}
+      {association ? (
+        <>
+          {association.events && association.events.length && (
+            <div className="relative -translate-y-8">
+              <AssociationTimeline events={association.events} />
+            </div>
+          )}
 
-      <div className="wrapper mt-0 lg:mt-16">
-        <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between w-full gap-8 xl:gap-16 h-fit">
-          <div className="flex-1">
-            <div className="flex flex-col gap-4">
-              <p className="max-w-prose leading-[1.75] whitespace-pre-wrap">
-                {association.presentation}
-              </p>
+          <div className="wrapper mt-0 lg:mt-16">
+            <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between w-full gap-8 xl:gap-16 h-fit">
+              <div className="flex-1">
+                <div className="flex flex-col gap-4">
+                  <p className="max-w-prose leading-[1.75] whitespace-pre-wrap">
+                    {association.presentation}
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden lg:block w-[1px] bg-neutral-100"></div>
+
+              <DiscoverMembers />
             </div>
           </div>
-
-          <div className="hidden lg:block w-[1px] bg-neutral-100"></div>
-
-          <DiscoverMembers />
+        </>
+      ) : (
+        <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16">
+          <LogoIcon className="fill-neutral-200 w-16 h-16" />
+          <p>Cette page rencontre quelques soucis actuellement :(</p>
         </div>
-      </div>
+      )}
     </main>
   );
 }

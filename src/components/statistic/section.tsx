@@ -5,6 +5,10 @@ import { TriangleSVG } from "../triangle";
 export async function StatisticSection() {
   const statistics = await getStatistics();
 
+  if (!statistics || statistics.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative w-full py-16 md:py-24 bg-gradient-to-b from-navy-900 to-navy-700 overflow-hidden z-0">
       <TriangleSVG

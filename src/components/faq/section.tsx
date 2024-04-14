@@ -8,6 +8,10 @@ export async function FaqSection() {
   const socials = await getSocials();
   const discord = socials.find((s) => s.name.toLowerCase() === "discord");
 
+  if (!faqs || faqs.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative w-full py-16 md:py-24">
       <div className="wrapper">

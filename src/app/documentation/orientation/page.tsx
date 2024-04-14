@@ -29,9 +29,9 @@ export default async function OrientationPage() {
       </PageHeader>
 
       <div className="wrapper mt-12 lg:mt-16">
-        <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
-          {orientations &&
-            orientations.map((o, i) => (
+        {orientations && orientations.length ? (
+          <ul className="grid grid-col-1 lg:grid-cols-2 gap-8 xl:gap-x-16">
+            {orientations.map((o, i) => (
               <li key={i} className="w-full card p-8 flex flex-col gap-8">
                 {isLogo(o.logo) ? (
                   <div className="relative h-16 w-fit flex justify-center items-center">
@@ -79,7 +79,13 @@ export default async function OrientationPage() {
                 )}
               </li>
             ))}
-        </ul>
+          </ul>
+        ) : (
+          <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16">
+            <LogoIcon className="fill-neutral-200 w-16 h-16" />
+            <p>Aucune ressource n&apos;est disponible actuellement :(</p>
+          </div>
+        )}
       </div>
     </main>
   );

@@ -9,6 +9,8 @@ import {
   setFilterOptions,
   setFilteredMembers,
 } from "@/components/equipe/utils";
+import { LogoIcon } from "@/components/icons/logo";
+import { UserIcon } from "@/components/icons/user";
 
 export type EquipePageSearchParams = {
   department: string | undefined;
@@ -48,24 +50,40 @@ export default async function EquipePage({ searchParams }: EquipePageProps) {
         </div>
       </PageHeader>
 
-      <div className="relative mt-12 lg:mt-16 flex flex-col gap-8">
-        <div className="wrapper flex justify-end">
-          <SortFilter sorters={sorters} activeSort={filterOptions.sort} />
-        </div>
-        <DepartmentFilter
-          departments={departments}
-          activeDepartment={filterOptions.department}
-        />
-      </div>
+      {members && members.length && (
+        <>
+          <div className="relative mt-12 lg:mt-16 flex flex-col gap-8">
+            <div className="wrapper flex justify-end">
+              <SortFilter sorters={sorters} activeSort={filterOptions.sort} />
+            </div>
+            <DepartmentFilter
+              departments={departments}
+              activeDepartment={filterOptions.department}
+            />
+          </div>
+          <div className="wrapper mt-8">
+            {filteredMembers && filteredMembers.length ? (
+              <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
+                {filteredMembers.map((member) => (
+                  <MemberCard member={member} key={member.id} />
+                ))}
+              </ul>
+            ) : (
+              <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16">
+                <UserIcon className="fill-neutral-200 w-16 h-16" />
+                <p>Aucun membre ne correspond à cette recherche :(</p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
 
-      <div className="wrapper mt-8">
-        <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
-          {filteredMembers.length &&
-            filteredMembers.map((member) => (
-              <MemberCard member={member} key={member.id} />
-            ))}
-        </ul>
-      </div>
+      {(!members || members.length === 0) && (
+        <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16 mt-12 lg:mt-16">
+          <LogoIcon className="fill-neutral-200 w-16 h-16" />
+          <p>Cette page rencontre quelques soucis actuellement :(</p>
+        </div>
+      )}
     </main>
   );
 }

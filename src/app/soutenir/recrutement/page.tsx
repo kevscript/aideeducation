@@ -4,6 +4,7 @@ import { BulbIcon } from "@/components/icons/bulb";
 import { CalendarIcon } from "@/components/icons/calendar";
 import { DiscordIcon } from "@/components/icons/discord";
 import { LaptopIcon } from "@/components/icons/laptop";
+import { LogoIcon } from "@/components/icons/logo";
 import { MicrophoneIcon } from "@/components/icons/microphone";
 import { PeaceIcon } from "@/components/icons/peace";
 import { PageHeader } from "@/components/page-header";
@@ -26,14 +27,6 @@ export default async function RecrutementPage() {
                 Participez à l&apos;aventure AideEducation!
               </h5>
             </div>
-            {/* <div className="hidden lg:block w-[1px]"></div>
-            <div className="flex-1 flex flex-col">
-              <p className="text-white leading-[1.75] lg:max-w-[32rem] ">
-                Notre association est fière de compter sur une équipe dévouée de
-                bénévoles passionnés, prêts à partager leurs connaissances et
-                leur expérience pour soutenir notre mission.
-              </p>
-            </div> */}
           </div>
         </div>
       </PageHeader>
@@ -140,13 +133,17 @@ export default async function RecrutementPage() {
         </div>
       </div>
 
-      <div className="mt-12 lg:mt-16 lg:hidden">
-        <JobSlider jobs={jobs} />
-      </div>
+      {jobs && jobs.length && (
+        <>
+          <div className="mt-12 lg:mt-16 lg:hidden">
+            <JobSlider jobs={jobs} />
+          </div>
 
-      <div className="wrapper mt-12 lg:mt-24 hidden lg:block">
-        <JobGrid jobs={jobs} />
-      </div>
+          <div className="wrapper mt-12 lg:mt-24 hidden lg:block">
+            <JobGrid jobs={jobs} />
+          </div>
+        </>
+      )}
     </main>
   );
 }
