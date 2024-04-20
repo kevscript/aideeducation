@@ -66,24 +66,6 @@ export function Menu() {
               </Link>
             </ul>
           </div>
-
-          <ul className="flex flex-nowrap w-full mt-auto justify-center gap-2 items-center">
-            <a href="/" target="_blank">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-b from-navy-700 to-navy-900"></div>
-            </a>
-            <a href="/" target="_blank">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-b from-navy-700 to-navy-900"></div>
-            </a>
-            <a href="/" target="_blank">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-b from-navy-700 to-navy-900"></div>
-            </a>
-            <a href="/" target="_blank">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-b from-navy-700 to-navy-900"></div>
-            </a>
-            <a href="/" target="_blank">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-b from-navy-700 to-navy-900"></div>
-            </a>
-          </ul>
         </div>
       </div>
     </div>
