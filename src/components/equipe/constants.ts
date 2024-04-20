@@ -1,10 +1,14 @@
 import { Member } from "@/cms/types";
 
 export const departments = [
-  { value: "direction-generale", label: "Direction Générale" },
-  { value: "departement-pedagogique", label: "Dept. Pédagogique" },
-  { value: "departement-interieur", label: "Dept. Intérieur" },
-  { value: "departement-exterieur", label: "Dept. Extérieur" },
+  { value: "direction-generale", label: "Direction Générale", order: 1 },
+  {
+    value: "departement-pedagogique",
+    label: "Département Pédagogique",
+    order: 2,
+  },
+  { value: "departement-interieur", label: "Département Intérieur", order: 3 },
+  { value: "departement-exterieur", label: "Département Extérieur", order: 4 },
 ];
 
 export const sorters: { value: keyof Member; label: string }[] = [

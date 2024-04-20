@@ -1,16 +1,10 @@
 import { getMembers } from "@/cms/api";
 import { MemberCard } from "@/components/equipe/member-card";
-import { DepartmentFilter } from "@/components/equipe/department-filter";
 import { PageHeader } from "@/components/page-header";
 import { Member } from "@/cms/types";
-import { SortFilter } from "@/components/equipe/sort-filter";
-import { departments, sorters } from "@/components/equipe/constants";
-import {
-  setFilterOptions,
-  setFilteredMembers,
-} from "@/components/equipe/utils";
+import { departments } from "@/components/equipe/constants";
 import { LogoIcon } from "@/components/icons/logo";
-import { UserIcon } from "@/components/icons/user";
+import { sortMembersByDepartment } from "@/components/equipe/utils";
 
 export type EquipePageSearchParams = {
   department: string | undefined;
@@ -21,11 +15,10 @@ type EquipePageProps = {
   searchParams: EquipePageSearchParams;
 };
 
-export default async function EquipePage({ searchParams }: EquipePageProps) {
+export default async function EquipePage() {
   const members = await getMembers();
-
-  const filterOptions = setFilterOptions(searchParams);
-  const filteredMembers = setFilteredMembers(members, filterOptions);
+  const membersByDepartment =
+    members && members.length ? sortMembersByDepartment(members) : null;
 
   return (
     <main className="pb-24">
@@ -52,29 +45,32 @@ export default async function EquipePage({ searchParams }: EquipePageProps) {
 
       {members && members.length && (
         <>
-          <div className="relative mt-12 lg:mt-16 flex flex-col gap-8">
-            <div className="wrapper flex justify-end">
-              <SortFilter sorters={sorters} activeSort={filterOptions.sort} />
-            </div>
-            <DepartmentFilter
-              departments={departments}
-              activeDepartment={filterOptions.department}
-            />
-          </div>
-          <div className="wrapper mt-8">
-            {filteredMembers && filteredMembers.length ? (
-              <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
-                {filteredMembers.map((member) => (
-                  <MemberCard member={member} key={member.id} />
-                ))}
+          {membersByDepartment && (
+            <div className="relative mt-12 lg:mt-16 flex flex-col">
+              <ul className="wrapper flex flex-col gap-16 lg:gap-24">
+                {departments
+                  .sort((a, b) => (a.order > b.order ? 1 : -1))
+                  .map((department) => (
+                    <div key={department.value} className="flex flex-col gap-8">
+                      <div className="flex flex-nowrap gap-4 lg:gap-8 items-center">
+                        <div className="flex-1 h-[1px] bg-navy-700 w-full"></div>
+                        <h5 className="font-semibold text-navy-900 text-lg lg:text-2xl tracking-tighter">
+                          {department.label}
+                        </h5>
+                        <div className="flex-1 h-[1px] bg-navy-700 w-full"></div>
+                      </div>
+                      <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
+                        {membersByDepartment[department.value]
+                          .sort((a, b) => (a.rank > b.rank ? -1 : 1))
+                          .map((member) => (
+                            <MemberCard key={member.id} member={member} />
+                          ))}
+                      </ul>
+                    </div>
+                  ))}
               </ul>
-            ) : (
-              <div className="wrapper bg-neutral-50 rounded-2xl flex justify-center items-center gap-8 flex-col p-16">
-                <UserIcon className="fill-neutral-200 w-16 h-16" />
-                <p>Aucun membre ne correspond à cette recherche :(</p>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </>
       )}
 

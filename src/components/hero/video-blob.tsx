@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ExitIcon } from "../icons/exit";
 import { PlayIcon } from "../icons/play";
+import Image from "next/image";
+import VideoPortal from "./video-portal";
 
 export function VideoBlob() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -25,36 +27,31 @@ export function VideoBlob() {
 
   return (
     <>
-      <div
-        className="group hover:scale-125 transition duration-500 w-48 lg:w-3/5 aspect-square bg-navy-700 blobing flex justify-center items-center cursor-pointer"
-        onClick={handleVideoOpen}
-      >
-        <PlayIcon className="w-8 h-8 lg:w-12 lg:h-12 fill-white md:fill-navy-900 group-hover:fill-white transition" />
-      </div>
-
-      {videoStatus === "open" && (
+      <>
         <div
-          className="fixed z-50 inset-0 bg-gradient-to-b from-navy-700 to-navy-900 flex justify-center items-center p-8"
-          onClick={handleVideoClose}
+          className="group hover:scale-110 transition duration-500 w-3/4 lg:w-4/5 blobing aspect-square bg-navy-700 rounded-full flex justify-center items-center cursor-pointer"
+          onClick={handleVideoOpen}
         >
-          <div
-            className="absolute top-8 right-8 flex justify-center items-center z-[60] cursor-pointer"
-            onClick={handleVideoClose}
-          >
-            <ExitIcon className="w-8 h-8 fill-white pointer-events-none" />
+          <div className="z-0 relative w-[96%] h-[96%] rounded-full flex justify-center items-center bg-navy-900 blobing overflow-hidden">
+            <Image
+              src={"/presentation.webp"}
+              alt="presentation"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="h-full scale-100 w-auto object-cover opacity-40 absolute top-0 right-0 -z-10 group-hover:opacity-50 transition duration-1000"
+            />
+            <div className="bg-navy-700 w-16 h-16 lg:w-24 lg:h-24 transition group-hover:scale-125 duration-500 rounded-full flex justify-center items-center">
+              <PlayIcon className=" fill-white w-6 h-6 lg:w-8 lg:h-8 translate-x-0.5 lg:translate-x-1" />
+            </div>
           </div>
-
-          <iframe
-            className="w-3/4 aspect-video"
-            src="https://www.youtube.com/embed/7bn_3k4FPvI?si=b532rylpv04rD_rb"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
         </div>
-      )}
+      </>
+
+      <VideoPortal
+        handleVideoClose={handleVideoClose}
+        videoStatus={videoStatus}
+      />
     </>
   );
 }

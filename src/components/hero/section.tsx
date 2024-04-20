@@ -10,9 +10,14 @@ export async function HeroSection() {
   const discord = socials.find((s) => s.name.toLowerCase() === "discord");
 
   return (
-    <section className="relative overflow-hidden lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 py-16 md:py-24 lg:flex justify-center">
+    <section className="relative z-0 overflow-hidden lg:min-h-[90vh] bg-navy-900 bg-gradient-to-br from-navy-700 to-navy-900 py-16 md:py-24 lg:flex justify-center">
+      <TriangleSVG
+        className="absolute -top-[80%] -left-[10%] lg:top-[70%] lg:-left-[20%] -z-20 stroke-navy-900 rotate-45 w-1/2"
+        variant="outline"
+      />
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row-reverse">
         <VideoBlob />
+
         <div className="px-4 md:px-0 w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
           <h1 className="text-5xl lg:text-[4rem] font-bold tracking-tighter">
             AideEducation

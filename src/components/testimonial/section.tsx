@@ -27,6 +27,14 @@ export async function TestimonialSection() {
       <div className="wrapper">
         <div className="flex flex-col justify-center md:items-center md:text-center w-full">
           <h3 className="up-title-light">Témoignages</h3>
+          <TriangleSVG
+            className="absolute -top-[80%] -left-[10%] lg:top-[70%] lg:-left-[20%] -z-20 stroke-navy-900 rotate-45 w-1/2"
+            variant="outline"
+          />
+          <TriangleSVG
+            className="absolute -bottom-[60%] -right-[25%] lg:bottom-[60%] lg:-right-[20%] -z-10 stroke-navy-900 rotate-90 w-1/2"
+            variant="outline"
+          />
           <h5 className="title-light text-balance mt-4">
             Votre avis compte pour nous.
           </h5>
