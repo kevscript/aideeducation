@@ -75,7 +75,7 @@
 }
 
 .blobing {
-  animation: blobing 60s linear alternate infinite;
+  animation: blobing 100s linear alternate infinite;
 }
 
 @keyframes blobing {

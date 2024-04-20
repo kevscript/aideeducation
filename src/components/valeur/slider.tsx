@@ -34,7 +34,7 @@ export function ValeurSlider({ valeurs }: ValeurSliderProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="overflow-hidden relative" ref={emblaRef}>
+      <div className="overflow-hidden relative cursor-grab" ref={emblaRef}>
         <div className="flex wrapper gap-2">
           {valeurs.length &&
             valeurs.map((valeur, i) => (
