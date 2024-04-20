@@ -17,29 +17,48 @@ export function ValeurContent({ valeurs }: ValuerContentProps) {
 
   useGSAP(
     () => {
-      gsap.from(".section-uptitle", {
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-title", {
-        delay: 0.3,
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-description", {
-        delay: 0.6,
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
+      gsap.fromTo(
+        ".section-uptitle",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+      gsap.fromTo(
+        ".section-title",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+      gsap.fromTo(
+        ".section-description",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
     },
     { scope: container }
   );
@@ -52,14 +71,14 @@ export function ValeurContent({ valeurs }: ValuerContentProps) {
       <div className="section-header wrapper mb-8 lg:mb-16">
         <div className="flex flex-col lg:flex-row lg:flex-nowrap lg:justify-between w-full lg:items-end gap-8 lg:gap-16">
           <div className="flex flex-col gap-4 max-w-[32rem] w-full">
-            <h3 className="up-title-dark section-uptitle">Valeurs</h3>
-            <h5 className="title-dark section-title">
+            <h3 className="up-title-dark invisible section-uptitle">Valeurs</h3>
+            <h5 className="title-dark section-title invisible">
               Les piliers de notre communauté.
             </h5>
           </div>
 
           <div className="max-w-[32rem] w-full flex flex-col">
-            <p className="text-neutral-500 leading-[1.75] section-description">
+            <p className="text-neutral-500 leading-[1.75] section-description invisible">
               Guidés par nos valeurs, nous œuvrons chaque jour à créer un
               environnement où l&apos;empathie et le respect sont au cœur de
               chaque interaction.

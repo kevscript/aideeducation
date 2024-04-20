@@ -19,29 +19,50 @@ export function TestimonialContent({ testimonials }: TestimonialContentProps) {
 
   useGSAP(
     () => {
-      gsap.from(".section-uptitle", {
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-title", {
-        delay: 0.3,
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-description", {
-        delay: 0.6,
-        scrollTrigger: ".section-header",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
+      gsap.fromTo(
+        ".section-uptitle",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".section-title",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".section-description",
+        {
+          scrollTrigger: ".section-header",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
     },
     { scope: container }
   );
@@ -65,11 +86,13 @@ export function TestimonialContent({ testimonials }: TestimonialContentProps) {
       <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
       <div className="wrapper">
         <div className="section-header flex flex-col justify-center md:items-center md:text-center w-full">
-          <h3 className="section-uptitle up-title-light">Témoignages</h3>
-          <h5 className="section-title title-light text-balance mt-4">
+          <h3 className="section-uptitle invisible up-title-light">
+            Témoignages
+          </h3>
+          <h5 className="section-title invisible title-light text-balance mt-4">
             Votre avis compte pour nous.
           </h5>
-          <p className="section-description text-neutral-100 leading-[1.75] max-w-prose text-balance mt-8">
+          <p className="section-description invisible text-neutral-100 leading-[1.75] max-w-prose text-balance mt-8">
             Découvrez les avis de notre communauté recueillis sur Disboard et
             DiscordInvites. Partagez vos expériences et enrichissez notre réseau
             en laissant le votre.
