@@ -20,11 +20,20 @@ export function VideoBlob({ handleVideoOpen }: VideoBlobProps) {
   });
 
   useGSAP(() => {
-    gsap.from(".hero-blob", {
-      scale: 0,
-      duration: 2,
-      ease: "power2.inOut",
-    });
+    gsap.fromTo(
+      ".hero-blob",
+      {
+        scale: 0,
+        autoAlpha: 0,
+      },
+      {
+        scale: 1,
+        autoAlpha: 1,
+        duration: 2,
+        ease: "power2.inOut",
+      }
+    );
+    gsap.from(".hero-blob", {});
     gsap.from(".hero-blob-inner", {
       delay: 0.6,
       duration: 2,
@@ -37,7 +46,7 @@ export function VideoBlob({ handleVideoOpen }: VideoBlobProps) {
     <div
       onMouseEnter={onBlobEnter}
       onMouseLeave={onBlobLeave}
-      className="hero-blob group hover:scale-110 w-3/4 blobing lg:w-4/5 aspect-square bg-navy-700 rounded-full flex justify-center items-center cursor-pointer overflow-hidden"
+      className="hero-blob invisible group hover:scale-110 w-3/4 blobing lg:w-4/5 aspect-square bg-navy-700 rounded-full flex justify-center items-center cursor-pointer overflow-hidden"
       onClick={handleVideoOpen}
     >
       <div className="hero-blob-inner z-0 relative w-[96%] h-[96%] rounded-full flex justify-center items-center bg-navy-900 blobing overflow-hidden">
