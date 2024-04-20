@@ -23,26 +23,61 @@ export function HeroContent({ socials }: HeroContentProps) {
   const container = useRef(null);
   useGSAP(
     () => {
-      gsap.from(".hero-title", {
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".hero-subtitle", {
-        delay: 0.3,
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".hero-buttons", {
-        delay: 0.6,
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
+      gsap.fromTo(
+        ".hero-title",
+        {
+          autoAlpha: 0,
+          y: 32,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".hero-subtitle",
+        {
+          autoAlpha: 0,
+          y: 32,
+        },
+        {
+          delay: 0.3,
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".hero-buttons",
+        {
+          autoAlpha: 0,
+          y: 32,
+        },
+        {
+          delay: 0.6,
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".social-list",
+        {
+          autoAlpha: 0,
+        },
+        {
+          duration: 0.1,
+          autoAlpha: 1,
+        }
+      );
+
       gsap.from(".social-item", {
         delay: 0.9,
         scale: 0,
@@ -81,14 +116,14 @@ export function HeroContent({ socials }: HeroContentProps) {
           <VideoBlob handleVideoOpen={handleVideoOpen} />
 
           <div className="px-4 md:px-0 w-full flex flex-col items-center lg:items-start text-center lg:text-left text-white">
-            <h1 className="hero-title text-5xl lg:text-[4rem] font-bold tracking-tighter">
+            <h1 className="hero-title invisible text-5xl lg:text-[4rem] font-bold tracking-tighter">
               AideEducation
             </h1>
-            <h3 className="hero-subtitle mt-4 lg:text-2xl lg:max-w-[32rem] lg:tracking-tight lg:mt-6 text-balance md:text-wrap">
+            <h3 className="hero-subtitle invisible mt-4 lg:text-2xl lg:max-w-[32rem] lg:tracking-tight lg:mt-6 text-balance md:text-wrap">
               Car le savoir est un droit. Facile d&apos;utilisation, nous sommes
               votre plateforme d&apos;aide aux devoirs personnalisée.
             </h3>
-            <div className="hero-buttons flex flex-col w-full gap-4 mt-8 lg:mt-12 lg:flex-row">
+            <div className="hero-buttons invisible flex flex-col w-full gap-4 mt-8 lg:mt-12 lg:flex-row">
               <Button
                 theme="dark"
                 is="anchor"
@@ -108,7 +143,7 @@ export function HeroContent({ socials }: HeroContentProps) {
               </Button>
             </div>
             {socials && (
-              <ul className="flex gap-4 mt-12">
+              <ul className="social-list invisible flex gap-4 mt-12">
                 {socials.map((social) => (
                   <a
                     key={social.id}
