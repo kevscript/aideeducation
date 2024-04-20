@@ -61,7 +61,11 @@ export default async function EquipePage() {
                       </div>
                       <ul className="w-full grid gap-1 md:gap-2 grid-cols-1 md:grid-cols-2 lg:grid lg:grid-cols-3 lg:gap-4 auto-rows-fr">
                         {membersByDepartment[department.value]
-                          .sort((a, b) => (a.rank > b.rank ? -1 : 1))
+                          .sort((a, b) => {
+                            if (a.order === 0) return 1; //Return 1 so that b goes first
+                            if (b.order === 0) return -1; //Return -1 so that a goes first
+                            return a.order - b.order;
+                          })
                           .map((member) => (
                             <MemberCard key={member.id} member={member} />
                           ))}

@@ -19,29 +19,50 @@ export function StatisticContent({ statistics }: StatisticContentProps) {
 
   useGSAP(
     () => {
-      gsap.from(".section-uptitle", {
-        scrollTrigger: ".section-content",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-title", {
-        delay: 0.3,
-        scrollTrigger: ".section-content",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
-      gsap.from(".section-description", {
-        delay: 0.6,
-        scrollTrigger: ".section-content",
-        duration: 1,
-        ease: "power2.inOut",
-        y: 32,
-        opacity: 0,
-      });
+      gsap.fromTo(
+        ".section-uptitle",
+        {
+          scrollTrigger: ".section-content",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".section-title",
+        {
+          scrollTrigger: ".section-content",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
+
+      gsap.fromTo(
+        ".section-description",
+        {
+          scrollTrigger: ".section-content",
+          y: 32,
+          autoAlpha: 0,
+        },
+        {
+          duration: 1,
+          ease: "power2.inOut",
+          y: 0,
+          autoAlpha: 1,
+        }
+      );
     },
     { scope: container }
   );
@@ -66,12 +87,14 @@ export function StatisticContent({ statistics }: StatisticContentProps) {
         <div className="flex flex-col-reverse xl:flex-row xl:flex-nowrap xl:justify-between gap-8 lg:gap-16">
           <StatisticList statistics={statistics} />
           <div className="flex flex-col w-full max-w-[24rem] text-white shrink-0">
-            <h3 className="section-uptitle up-title-light">Statistiques</h3>
-            <h5 className="section-title title-light mt-4 text-balance">
+            <h3 className="section-uptitle invisible up-title-light">
+              Statistiques
+            </h3>
+            <h5 className="section-title invisible title-light mt-4 text-balance">
               Notre activité en chiffres.
             </h5>
 
-            <p className="section-description text-neutral-50 leading-[1.75] mt-8">
+            <p className="section-description invisible text-neutral-50 leading-[1.75] mt-8">
               Au-delà des mots. Découvrez notre parcours à travers nos chiffres,
               témoins de notre expertise en matière d&apos;aide scolaire.
             </p>
