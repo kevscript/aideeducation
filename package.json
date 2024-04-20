@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.0",
     "@hookform/resolvers": "^3.3.4",
     "embla-carousel-auto-scroll": "^8.0.1",
     "embla-carousel-react": "^8.0.0",
+    "gsap": "^3.12.5",
     "next": "14.1.4",
     "nodemailer": "^6.9.13",
     "react": "^18",
