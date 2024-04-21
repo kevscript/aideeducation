@@ -3,12 +3,10 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Social } from "@/cms/types";
-import { VideoBlob } from "./video-blob";
 import { Button } from "../button";
 import { isIcon } from "@/cms/typeguards";
 import { DiscordIcon } from "../icons/discord";
 import { useMemo, useRef, useState } from "react";
-import { ExitIcon } from "../icons/exit";
 import { TriangleSVG } from "../triangle";
 
 type HeroContentProps = {
@@ -123,7 +121,6 @@ export function HeroContent({ socials }: HeroContentProps) {
 
       <TriangleSVG className="absolute bottom-[75%] left-[3%] -z-10 fill-navy-700 w-3 lg:w-8 h-auto rotate-[105deg]" />
       <div className="absolute w-3 lg:w-8 aspect-square rounded-full bg-navy-700 -z-10 right-[4%] lg:top-[40%]"></div>
-      <div className="hidden lg:block z-10 absolute inset-0 bg-gradient-to-b from-transparent to-navy-700 from-70%"></div>
       <div className="wrapper flex flex-col items-center gap-12 lg:flex-row">
         <div className="w-full lg:w-fit px-4 md:px-0 flex flex-col items-center lg:items-start text-center lg:text-left text-white">
           <h1 className="hero-title invisible text-5xl lg:text-[4rem] font-bold tracking-tighter">
